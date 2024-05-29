@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-14-template",
+  "name": "Labs",
   "version": "1.0.0",
-  "author": "Anwar Hossain",
+  "author": "cac chu be dan",
   "license": "MIT",
   "private": true,
   "engines": {
@@ -16,18 +16,14 @@
     "eslint": "next lint --fix --dir src",
     "prettier": "prettier --write .",
     "lint": "yarn eslint && yarn prettier",
-    "format": "next lint --fix && prettier '**/*.{json,yaml}' --write --ignore-path .gitignore",
-    "postbuild": "next-sitemap && yarn prisma generate",
-    "postinstall": "yarn prisma generate"
+    "format": "next lint --fix && prettier '**/*.{json,yaml}' --write --ignore-path .gitignore"
   },
   "lint-staged": {
     "*.{js,jsx,md,ts,tsx,html,css,scss}": "yarn prettier",
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix --cache-location ./node_modules/.cache/.eslintcache"
   },
   "dependencies": {
-    "@next-auth/prisma-adapter": "^1.0.7",
     "@next/bundle-analyzer": "^14.1.4",
-    "@prisma/client": "^5.11.0",
     "axios": "^1.6.8",
     "config": "^3.3.11",
     "date-fns": "^3.6.0",
@@ -58,7 +54,6 @@
     "lint-staged": "^15.2.2",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.3",
-    "prisma": "^5.11.0"
+    "typescript": "^5.4.3"
   }
 }
