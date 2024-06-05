@@ -13,6 +13,7 @@ async function getUserById(id: string) {
       email: 'john.doe@gmail.com',
       phone: '0912365985',
       topic: ['detect student', 'build data system'],
+      image_url: 'http//image.com/jone-doe',
     },
     {
       id: '2',
@@ -20,6 +21,7 @@ async function getUserById(id: string) {
       email: 'jane.doe@gmail.com',
       phone: '0912365985',
       topic: ['detect student', 'build data system'],
+      image_url: 'http//image.com/jane-doe',
     },
     {
       id: '3',
@@ -27,6 +29,7 @@ async function getUserById(id: string) {
       email: 'peter.doe@gmail.com',
       phone: '0912365985',
       topic: ['detect student', 'build data system'],
+      image_url: 'http//image.com/peter-doe',
     },
     {
       id: '4',
@@ -34,6 +37,7 @@ async function getUserById(id: string) {
       email: 'mary.doe@gmail.com',
       phone: '0912365985',
       topic: ['detect student', 'build data system'],
+      image_url: 'http//image.com/mary-doe',
     },
   ];
   return users.find(user => user.id === id) || null;
