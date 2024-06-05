@@ -1,29 +1,31 @@
 import '@/styles/globals.css';
 
-import { Inter } from 'next/font/google';
+import { Inter as FontSans } from 'next/font/google';
 
 import MainFooter from '@/components/Footer';
 import type { ChildrenProps } from '@/types';
+import { cn } from '@/lib/utils';
 
 export const metadata = {
-  description:
-    'A highly opinionated and complete starter for Next.js projects ready to production. Includes Typescript, Styled Components, Prettier, ESLint, Husky, SEO, and more.',
+  description: 'All information about labs for student',
   keywords:
     'next, starter, typescript, tailwind css, prettier, eslint, husky, seo',
-  title: 'Next Starter',
+  title: 'Labs',
 };
 
-const inter = Inter({
+const fontSans = FontSans({
   subsets: ['latin'],
-  display: 'swap',
-  adjustFontFallback: false,
+  variable: '--font-sans',
 });
 
 export default async function RootLayout({ children }: ChildrenProps) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} h-full flex flex-col justify-between`}
+        className={cn(
+          'min-h-screen bg-background font-sans antialiased',
+          fontSans.variable
+        )}
       >
         <section className="flex-1">{children}</section>
         <MainFooter />

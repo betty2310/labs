@@ -5,6 +5,5 @@
 import { getDateCompare } from './date';
 import { fetcher } from './fetcher';
 import { logError, logInfo } from './logger';
-import { displayNumbers } from './utils';
 
-export { displayNumbers, fetcher, getDateCompare, logError, logInfo };
+export { fetcher, getDateCompare, logError, logInfo };
