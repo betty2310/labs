@@ -77,7 +77,7 @@ export interface LabTopics {
   number_of_students: number;
   created_at: Date;
   updated_at: Date;
-  teacher?: Teacher;
+  teacher_id?: string;
   fundings?: string[];
 }
 
@@ -86,8 +86,8 @@ export interface Labs {
   name: string;
   description: string;
   image_urls: string[];
-  teachers: Teacher[];
-  topics: LabTopics[];
+  teacher_ids: string[];
+  topic_ids: string[];
   specialized: Specialized;
   working_time: WorkingTime;
   is_open: boolean;
