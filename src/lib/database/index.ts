@@ -13,6 +13,8 @@ export type Specialized =
 
 export type WorkingTime = 'fulltime' | 'parttime';
 
+export type Language = 'english' | 'japanese';
+
 export interface Teacher {
   id: string;
   name: string;
@@ -47,6 +49,7 @@ export interface Labs {
   working_time: WorkingTime;
   is_open: boolean;
   number_of_students: number;
+  language?: Language;
   salary: number;
   created_at: Date;
   updated_at: Date;
