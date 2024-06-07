@@ -1,9 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-
-
-// data sample
+// Dữ liệu mẫu
 const labs = [
   {
     id: '1',
@@ -24,23 +22,16 @@ const labs = [
   },
 ];
 
-
+// Hàm lấy lab theo ID
 async function getLabById(id: string) {
   return labs.find(lab => lab.id === id) || null;
 }
 
-
+// Hàm xử lý GET request
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  // Kiểm tra xem yêu cầu có phải là GET hay không
-  if (req.method !== 'GET') {
-    return NextResponse.json(
-      { message: 'Method not allowed' },
-      { status: 405 }
-    );
-  }
   const { id } = params;
 
   const lab = await getLabById(id);
