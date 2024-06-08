@@ -72,10 +72,12 @@ module.exports = {
     'react/no-unescaped-entities': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'eslintimport/no-extraneous-dependencies': 'off',
     // 'simple-import-sort/exports': 'error',
     // 'simple-import-sort/imports': 'error',
     'sort-keys': 'off',
     'no-unused-vars': 'error',
+    semi: ['error', 'always'],
     'react/function-component-definition': [
       2,
       {

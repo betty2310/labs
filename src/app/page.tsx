@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
           A highly opinionated and complete starter for Next.js projects ready
           to production
         </p>
+        <Button variant="secondary">Click me</Button>
       </section>
     </MainLayout>
   );
