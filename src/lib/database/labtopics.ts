@@ -9,7 +9,6 @@ export const LabTopicsData: LabTopics[] = [
     number_of_students: 2,
     created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 5)),
-<<<<<<< HEAD
     teacher_id: 'EotibRu',
   },
   {
@@ -350,9 +349,6 @@ export const LabTopicsData: LabTopics[] = [
     number_of_students: 2,
     created_at: new Date(new Date().setDate(new Date().getDate() - 8)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 3)),
-    teacher_id: 'JIIKdsO',
-=======
-    teacher_id: '1',
->>>>>>> 8f12604 (test commit)
+    teacher_id: 'RsUfOGs',
   },
 ];
