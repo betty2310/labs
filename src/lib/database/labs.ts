@@ -149,26 +149,6 @@ export const LabData: Labs[] = [
     working_time: 'fulltime',
   },
   {
-    id: '02e68ba0-cac7-4cd9-99e1-84aeae162df7',
-    name: 'Công nghệ 5G và Mạng di động',
-    description:
-      'Công nghệ 5G là một trong những công nghệ tiên tiến nhất trong lĩnh vực truyền thông di động, mang lại tốc độ truy cập Internet nhanh hơn, ổn định hơn, và đáng tin cậy hơn. 5G không chỉ cung cấp tốc độ truy cập Internet cao hơn mà còn mở ra nhiều cơ hội mới cho các ứng dụng công nghệ như trí tuệ nhân tạo (AI), Internet of Things (IoT), và xe tự hành.',
-    image_urls: [
-      'https://ttcntt.hatinh.gov.vn/uploads/news/2022_06/5g.jpg',
-      'https://dntech.vn/uploads/details/2020/12/images/M%E1%BA%A1ng%20di%20%C4%91%E1%BB%99ng%205G%2011.jpg',
-    ],
-    teacher_ids: ['11', '23'],
-    language: 'japanese',
-    created_at: new Date(new Date().setDate(new Date().getDate() - 12)),
-    updated_at: new Date(new Date().setDate(new Date().getDate() - 5)),
-    is_open: false,
-    number_of_students: 10,
-    salary: 25,
-    specialized: 'Kỹ thuật Điện tử-Viễn thông',
-    topic_ids: ['14', '15'],
-    working_time: 'fulltime',
-  },
-  {
     id: 'a98e784f-5754-4be6-9f14-f5c4a0f3a14f',
     name: 'Nanobiotechnology Lab',
     description:
@@ -595,6 +575,24 @@ export const LabData: Labs[] = [
     number_of_students: 22,
     salary: 38,
     specialized: 'Công nghệ vật liệu Polyme và Compozit',
+    topic_ids: ['49', '50'],
+    working_time: 'fulltime',
+  },
+  {
+    id: '2d1edb2c-e35d-4796-8d3e-bad274425c34',
+    name: 'Lab. of Structure Analysis',
+    description:
+      'Phòng nghiên cứu Phân tích cấu trúc thuộc Bộ môn Quang học và Quang điện tử, với hệ thống các thiết bị phục vụ nghiên cứu, giảng dạy và NCKH của giảng viên và sinh viên.',
+    image_urls: [
+      'https://sep.hust.edu.vn/wp-content/uploads/XRD.jpg',
+    ],
+    teacher_ids: ['49', '50'],
+    created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
+    updated_at: new Date(new Date().setDate(new Date().getDate() - 3)),
+    is_open: true,
+    number_of_students: 22,
+    salary: 38,
+    specialized: 'Vật lý Kỹ thuật',
     topic_ids: ['49', '50'],
     working_time: 'fulltime',
   },

@@ -31,4 +31,14 @@ export const LabTopicsData: LabTopics[] = [
     updated_at: new Date(new Date().setDate(new Date().getDate() - 4)),
     teacher_id: '2',
   },
+  {
+    id: 'c8cd9b48-9ad7-421c-a63e-eaaf2e47882c',
+    name: 'Kỹ thuật y sinh',
+    description:
+      'Nghiên cứu về kỹ thuật y sinh',
+    number_of_students: 2,
+    created_at: new Date(new Date().setDate(new Date().getDate() - 8)),
+    updated_at: new Date(new Date().setDate(new Date().getDate() - 4)),
+    teacher_id: '2',
+  },
 ];
