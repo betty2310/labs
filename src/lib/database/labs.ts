@@ -104,7 +104,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://d35y3h46sw2vsm.cloudfront.net/w/wp-content/uploads/2023/08/Cyber-Security.jpg',
     ],
-    teacher_ids: ['9', '21'],
+    teacher_ids: ['RsUfOGs'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 6)),
     updated_at: new Date(),
     is_open: true,
@@ -120,14 +120,14 @@ export const LabData: Labs[] = [
     description:
       'Internet of Things (IoT) và hệ thống nhúng thông minh là hai lĩnh vực công nghệ đang phát triển mạnh mẽ và có ứng dụng rộng rãi trong nhiều lĩnh vực khác nhau. IoT kết nối các thiết bị thông minh với nhau và với Internet, tạo ra một mạng lưới thông tin toàn cầu. Hệ thống nhúng thông minh là các hệ thống điện tử được thiết kế để thực hiện các chức năng cụ thể trong một thiết bị lớn hơn. Sự kết hợp giữa IoT và hệ thống nhúng thông minh giúp tạo ra các sản phẩm thông minh và tiện ích hơn cho cuộc sống hàng ngày.',
     image_urls: ['https://swinburne-vn.edu.vn/wp-content/uploads/image5-1.jpg'],
-    teacher_ids: ['10', '22'],
+    teacher_ids: ['FaJECkl'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 8)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 1)),
     is_open: true,
     number_of_students: 8,
     salary: 23,
     specialized: 'Hệ thống nhúng thông minh và IoT',
-    topic_ids: ['11', '13'],
+    topic_ids: ['51299b88-cf66-44d9-afb0-9f2b424f7c3d'],
     working_time: 'fulltime',
   },
   {
