@@ -1,46 +1,45 @@
-import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-// Dữ liệu mẫu
-const labs = [
-  {
-    id: '1',
-    name: 'In labs',
-    description: 'Lab in ấn là nơi đào tạo các kỹ sư in ấn chuyên nghiệp',
-    image_urls: [
-      'https://www.rmit.edu.vn/sites/default/files/styles/16_9_768/public/2021-01/Printing%20Technology%20-%20Labs%20-%20RMIT%20Vietnam.jpg?itok=1Z6YiH9Z',
-    ],
-    teacher_ids: ['1', '2'],
-    created_at: new Date(),
-    updated_at: new Date(),
-    is_open: true,
-    number_of_students: 20,
-    salary: 20,
-    specialized: 'Kỹ thuật In',
-    topic_ids: ['1'],
-    working_time: 'fulltime',
-  },
-];
+import { LabData } from '@/lib/database/labs';
+import { TeacherData } from '@/lib/database/teachers';
+import { LabTopicsData } from '@/lib/database/labtopics';
 
-// Hàm lấy lab theo ID
-async function getLabById(id: string) {
-  return labs.find(lab => lab.id === id) || null;
+// Get lab by ID function
+export function getLabById(id: string) {
+  return LabData.find(lab => lab.id === id);
 }
 
-// Hàm xử lý GET request
+// Get teachers by IDs function
+export function getTeachersByIds(ids: string[]) {
+  return TeacherData.filter(teacher => ids.includes(teacher.id));
+}
+
+// Get topics by IDs function
+export function getTopicsByIds(ids: string[]) {
+  return LabTopicsData.filter(topic => ids.includes(topic.id));
+}
+
+interface Params {
+  id: string;
+}
+
 export async function GET(
-  req: NextRequest,
-  { params }: { params: { id: string } }
+  _request: NextRequest,
+  { params }: { params: Params }
 ) {
   const { id } = params;
-
-  const lab = await getLabById(id);
-
-  if (lab) {
-    return NextResponse.json(lab);
+  const lab = getLabById(id);
+  if (!lab) {
+    return NextResponse.json({ message: 'Lab not found' }, { status: 404 });
   }
-  return NextResponse.json(
-    { message: `Lab with id: ${id} not found` },
-    { status: 404 }
-  );
+
+  const teachers = getTeachersByIds(lab.teacher_ids);
+  const topics = getTopicsByIds(lab.topic_ids);
+
+  return NextResponse.json({
+    ...lab,
+    teachers,
+    topics,
+  });
 }
