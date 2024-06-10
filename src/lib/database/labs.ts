@@ -9,14 +9,14 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje0t9MqvOy7ydtuiyFNrJjG6R52EwYP1FmY4Qr7zzTIcOL7OsLsp_2QVu8k4_L9YCNajRppCinGOIRfwlDkAmwX-jtZQg5zgTQ7IkMdCIJdO0_iw6J1immMIGofnio9CA9rRNF-wRK8qPzHqKoYBQQliWhofsUsN8yrDdg4fmwz9o48yCWGZnQ4bLUqY8/w0/lo-trinh-hoc-thiet-ke-vi-mach-dien-tu-cho-nguoi-moi-bat-dau.jpg',
     ],
-    teacher_ids: ['1', '2'],
+    teacher_ids: ['TPHAlsp'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 1)),
     updated_at: new Date(),
     is_open: true,
     number_of_students: 12,
     salary: 20,
     specialized: 'Điện tử - Viễn thông - ĐH Leibniz Hannover',
-    topic_ids: ['1'],
+    topic_ids: ['1851f963-1b13-4b9f-b45d-48941c50d274'],
     working_time: 'parttime',
   },
   {
@@ -27,14 +27,14 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://duhoctrawise.edu.vn/wp-content/uploads/2023/06/1-33.jpg',
     ],
-    teacher_ids: ['5', '15'],
+    teacher_ids: ['JaedLdB'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 2)),
     updated_at: new Date(),
     is_open: true,
     number_of_students: 8,
     salary: 23,
     specialized: 'Điện tử - Viễn thông - ĐH Leibniz Hannover',
-    topic_ids: ['2', '3'],
+    topic_ids: ['c8cd9b48-9ad7-421c-a63e-eaaf2e47882c'],
     working_time: 'fulltime',
   },
   {
@@ -65,7 +65,7 @@ export const LabData: Labs[] = [
       'https://cdn.thuvienphapluat.vn/uploads/tintuc/2024/03/25/nen-tang-blockchain.jpg',
       'https://images.fpt.shop/unsafe/filters:quality(90)/fptshop.com.vn/uploads/images/tin-tuc/138522/Originals/blockchain-la-gi-01.jpg',
     ],
-    teacher_ids: ['7', '19'],
+    teacher_ids: ['NkawAiT'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 10)),
     updated_at: new Date(),
@@ -73,7 +73,7 @@ export const LabData: Labs[] = [
     number_of_students: 10,
     salary: 25,
     specialized: 'Công nghệ Thông tin Global ICT',
-    topic_ids: ['4', '5'],
+    topic_ids: ['0f3849f7-f81c-44a3-ab55-5190061e215e'],
     working_time: 'fulltime',
   },
   {
@@ -85,7 +85,7 @@ export const LabData: Labs[] = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo_4JvYC8XrWAWm_8VVZ_gyiC5Sdz-rGJHDg&s',
       'https://nld.mediacdn.vn/2018/12/1/photo-1-15436382740761548685066.jpg',
     ],
-    teacher_ids: ['8', '20'],
+    teacher_ids: ['JIIKdsO'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 5)),
     updated_at: new Date(),
@@ -93,7 +93,7 @@ export const LabData: Labs[] = [
     number_of_students: 15,
     salary: 28,
     specialized: 'Khoa học Dữ liệu và Trí tuệ nhân tạo',
-    topic_ids: ['6', '7'],
+    topic_ids: ['b1ed53e9-135c-4fa9-b952-3c311247ce32'],
     working_time: 'fulltime',
   },
   {
@@ -111,7 +111,7 @@ export const LabData: Labs[] = [
     number_of_students: 10,
     salary: 26,
     specialized: 'An toàn không gian số - Cyber Security',
-    topic_ids: ['8', '9'],
+    topic_ids: ['c46021b2-bdb9-40fd-a0ce-175d4675cee0'],
     working_time: 'parttime',
   },
   {
@@ -138,14 +138,14 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://cdn.tgdd.vn/Files/2021/03/05/1332924/5g-la-gi-va-tai-sao-5g-la-cong-nghe-quan-trong-nhat-cho-tuong-lai-1.jpg',
     ],
-    teacher_ids: ['11', '23'],
+    teacher_ids: ['tQVHydK'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 5)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 3)),
     is_open: false,
     number_of_students: 10,
     salary: 25,
     specialized: 'Kỹ thuật Điện tử-Viễn thông',
-    topic_ids: ['14', '15'],
+    topic_ids: ['41828d99-d690-452e-9130-459a6e790224'],
     working_time: 'fulltime',
   },
   {
@@ -156,7 +156,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVi5oiwEOCWOrRCvj84a72GQlx858i88FLHg&s',
     ],
-    teacher_ids: ['1', '2'],
+    teacher_ids: ['BkGeanD'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 4)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 1)),
@@ -164,7 +164,7 @@ export const LabData: Labs[] = [
     number_of_students: 12,
     salary: 28,
     specialized: 'Kỹ thuật Sinh học',
-    topic_ids: ['1', '2'],
+    topic_ids: ['afe1f996-7c05-4d8d-9efa-baebd00cd99f'],
     working_time: 'fulltime',
   },
   {
@@ -173,7 +173,7 @@ export const LabData: Labs[] = [
     description:
       'Lab này chuyên sâu vào nghiên cứu và phát triển các vật liệu hóa học tiên tiến, bao gồm các polymer, composite, và nanomaterials, để ứng dụng trong các lĩnh vực như y tế, năng lượng, và công nghiệp.',
     image_urls: ['https://www.eng.hokudai.ac.jp/labo/amc/img/img06.jpg'],
-    teacher_ids: ['3', '4'],
+    teacher_ids: ['cSDdteN'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 9)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 2)),
@@ -181,7 +181,7 @@ export const LabData: Labs[] = [
     number_of_students: 15,
     salary: 30,
     specialized: 'Kỹ thuật Hóa học',
-    topic_ids: ['3', '4'],
+    topic_ids: ['5751c865-363a-4485-b451-90be3f1bc6ce'],
     working_time: 'fulltime',
   },
   {
@@ -192,7 +192,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://nazmidincer.com/assets/img/what-is-educational-technology.jpghttps://example.com/lab3.jpg',
     ],
-    teacher_ids: ['5', '6'],
+    teacher_ids: ['ALbveYV'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 12)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 7)),
@@ -200,7 +200,7 @@ export const LabData: Labs[] = [
     number_of_students: 20,
     salary: 35,
     specialized: 'Công nghệ Giáo dục',
-    topic_ids: ['5', '6'],
+    topic_ids: ['47f84552-f636-4938-82b6-c4493a554275'],
     working_time: 'fulltime',
   },
   {
@@ -212,7 +212,7 @@ export const LabData: Labs[] = [
       'https://educationaltechnology.net/wp-content/uploads/2016/10/educational-technology.png',
       'https://nazmidincer.com/assets/img/what-is-educational-technology.jpg',
     ],
-    teacher_ids: ['7', '8'],
+    teacher_ids: ['ircGHHQ'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 5)),
@@ -220,7 +220,7 @@ export const LabData: Labs[] = [
     number_of_students: 18,
     salary: 32,
     specialized: 'Kỹ thuật điện',
-    topic_ids: ['7', '8'],
+    topic_ids: ['18ac4373-6b0c-4a55-9550-3a8c070d01a1'],
     working_time: 'fulltime',
   },
   {
@@ -231,14 +231,14 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY7YLT2tb7L0Z4s11KWfJHV9KajMAvT7WZTg&s',
     ],
-    teacher_ids: ['9', '10'],
+    teacher_ids: ['xbJuhpu'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 2)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 1)),
     is_open: true,
     number_of_students: 15,
     salary: 30,
     specialized: 'Kỹ thuật điều khiển & Tự động hóa',
-    topic_ids: ['9', '10'],
+    topic_ids: ['1c9917af-cb31-4aff-90df-bab3a5bd7fc8'],
     working_time: 'fulltime',
   },
   {
@@ -249,7 +249,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://usth.edu.vn/en/wp-content/uploads/sites/2/2018/04/12095197_1040661842613639_7086666494199395690_o-e1653296665477.jpg',
     ],
-    teacher_ids: ['11', '12'],
+    teacher_ids: ['eyvuhzi'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 14)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 6)),
@@ -257,7 +257,7 @@ export const LabData: Labs[] = [
     number_of_students: 25,
     salary: 40,
     specialized: 'Quản lý Năng lượng',
-    topic_ids: ['11', '12'],
+    topic_ids: ['e629c981-04b4-41fc-81ff-46061c2ce072'],
     working_time: 'fulltime',
   },
   {
@@ -268,7 +268,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4c8-SZOLV2DiNglrOlQwrgE_p1zJk3j9pxw&s',
     ],
-    teacher_ids: ['13', '14'],
+    teacher_ids: ['GHMssSF'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 3)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 1)),
@@ -276,7 +276,7 @@ export const LabData: Labs[] = [
     number_of_students: 20,
     salary: 35,
     specialized: 'Quản lý Công nghiệp',
-    topic_ids: ['13', '14'],
+    topic_ids: ['be58a75f-3f08-4e19-b05c-aaa969eb66b4'],
     working_time: 'fulltime',
   },
   {
@@ -288,7 +288,7 @@ export const LabData: Labs[] = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8WmhJlNx3QqCRdhd3lAHcsCqSoQljDxSw6A&s',
       'https://www.slideteam.net/media/catalog/product/cache/1280x720/t/h/three_months_business_administration_strategy_roadmap_slide01.jpg',
     ],
-    teacher_ids: ['15', '16'],
+    teacher_ids: ['bliBmAL'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 4)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 2)),
@@ -296,7 +296,7 @@ export const LabData: Labs[] = [
     number_of_students: 18,
     salary: 32,
     specialized: 'Quản trị Kinh doanh',
-    topic_ids: ['15', '16'],
+    topic_ids: ['f496f94f-e5c2-4590-b004-7960e1787f5a'],
     working_time: 'fulltime',
   },
   {
@@ -307,7 +307,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgR3bYwcn9hQGkAIW5RmxapsgKDJXvvElp1w&s',
     ],
-    teacher_ids: ['17', '18'],
+    teacher_ids: ['PUnKhLs'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 6)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 3)),
@@ -315,7 +315,7 @@ export const LabData: Labs[] = [
     number_of_students: 22,
     salary: 38,
     specialized: 'Kế toán',
-    topic_ids: ['17', '18'],
+    topic_ids: ['9a582230-9cf4-44f7-8cdc-3421209fce3d'],
     working_time: 'fulltime',
   },
   {
@@ -326,7 +326,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://kaplansingapore.edu.vn/wp-content/uploads/2018/03/banking-and-finance-1.jpg',
     ],
-    teacher_ids: ['19', '20'],
+    teacher_ids: ['IbnkYvv'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 15)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 9)),
@@ -334,7 +334,7 @@ export const LabData: Labs[] = [
     number_of_students: 20,
     salary: 35,
     specialized: 'Tài chính-Ngân hàng',
-    topic_ids: ['19', '20'],
+    topic_ids: ['07e5cbf5-4502-4630-b27b-8011e63f73c0'],
     working_time: 'fulltime',
   },
   {
@@ -345,7 +345,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://3.imimg.com/data3/QF/HB/MY-16673212/data-communication-laboratory.png',
     ],
-    teacher_ids: ['21', '22'],
+    teacher_ids: ['nZLZpPl'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 8)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 2)),
@@ -353,7 +353,7 @@ export const LabData: Labs[] = [
     number_of_students: 18,
     salary: 32,
     specialized: 'Kỹ thuật Điện tử-Viễn thông',
-    topic_ids: ['21', '22'],
+    topic_ids: ['2a5453f2-3164-40a5-80df-089a4367e591'],
     working_time: 'fulltime',
   },
   {
@@ -365,7 +365,7 @@ export const LabData: Labs[] = [
       'https://sbft.hust.edu.vn/wp-content/uploads/2022/06/ktys-01.png',
       'https://sbft.hust.edu.vn/wp-content/uploads/2022/06/DSC_7535.jpg',
     ],
-    teacher_ids: ['23', '24'],
+    teacher_ids: ['wzoCkgV'],
     language: 'japanese',
     created_at: new Date(new Date().setDate(new Date().getDate() - 8)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 6)),
@@ -384,7 +384,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://example.com/lab13.jpghttps://tuyensinh.ut.edu.vn/wp-content/uploads/2023/04/image10-1.png',
     ],
-    teacher_ids: ['25', '26'],
+    teacher_ids: ['eDgUzvz'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 8)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 2)),
     is_open: true,
@@ -402,7 +402,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://cres.edu.vn/wp-content/uploads/2023/07/347445734_185889844448677_7457243090951415156_n-e1688447010205.jpg',
     ],
-    teacher_ids: ['27', '28'],
+    teacher_ids: ['svyGNxs'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 10)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 7)),
@@ -421,7 +421,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkaNdWB7_82Qy4aX1nuLJQ-VLOsqq6V72gBQ&s',
     ],
-    teacher_ids: ['29', '30'],
+    teacher_ids: ['nZLZpPl', 'WuoeixS'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 10)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 6)),
@@ -440,7 +440,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://dut.udn.vn/Files/admin/images/Gioi_thieu/KhoaNhiet/CSVC/H03.JPG',
     ],
-    teacher_ids: ['31', '32'],
+    teacher_ids: ['Eiroksn'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 8)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 5)),
     is_open: true,
@@ -458,7 +458,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://hust.edu.vn/uploads/sys/news/2022/03/1602-news-3.112004.28859.jpg',
     ],
-    teacher_ids: ['35', '36'],
+    teacher_ids: ['zEICoTt','FaJECkl'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 9)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 4)),
@@ -477,7 +477,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://hust.edu.vn/uploads/sys/news/2022/03/1703-news-1.546402.28767.jpg',
     ],
-    teacher_ids: ['37', '38'],
+    teacher_ids: ['zvoGVAJ'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 4)),
@@ -496,7 +496,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://sme.hust.edu.vn/wp-content/uploads/2020/11/IMG_8102-1024x683.jpg',
     ],
-    teacher_ids: ['39', '40'],
+    teacher_ids: ['NKKYXlv'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 10)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 4)),
     is_open: true,
@@ -514,7 +514,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKevEzygpET_fg9MAHBaAX8UqchB_6MJczA&s',
     ],
-    teacher_ids: ['41', '42'],
+    teacher_ids: ['fwqsHOA'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 5)),
     is_open: true,
@@ -532,7 +532,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwI_4pk9d5-iCtcmD-l3PyGohTk9jl7EqDAw&s',
     ],
-    teacher_ids: ['43', '44'],
+    teacher_ids: ['YojJAgp'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 6)),
     is_open: true,
@@ -550,14 +550,14 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://sep.hust.edu.vn/wp-content/uploads/PhysicsLab-400x300.jpg',
     ],
-    teacher_ids: ['45', '46'],
+    teacher_ids: ['fLioQaV'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 1)),
     is_open: true,
     number_of_students: 20,
     salary: 35,
     specialized: 'Kỹ thuật Vật liệu',
-    topic_ids: ['45', '46'],
+    topic_ids: ['58c8b11e-04c8-4679-b8fd-a2fc057ffde4'],
     working_time: 'fulltime',
   },
   {
@@ -568,14 +568,14 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://ts.hust.edu.vn/storage/app/public/trainings/September2023/Polyme_02.jpg',
     ],
-    teacher_ids: ['49', '50'],
+    teacher_ids: ['CSXWcBg'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 3)),
     is_open: true,
     number_of_students: 22,
     salary: 38,
     specialized: 'Công nghệ vật liệu Polyme và Compozit',
-    topic_ids: ['49', '50'],
+    topic_ids: ['61167d17-1e47-4687-9ef2-aad4257fd5f3'],
     working_time: 'fulltime',
   },
   {
@@ -586,7 +586,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://sep.hust.edu.vn/wp-content/uploads/XRD.jpg',
     ],
-    teacher_ids: ['49', '50'],
+    teacher_ids: ['fLioQaV'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 3)),
     is_open: true,
@@ -604,7 +604,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://sep.hust.edu.vn/wp-content/uploads/XRD.jpg',
     ],
-    teacher_ids: ['49', '50'],
+    teacher_ids: ['YQIYjVp'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 3)),
     is_open: true,
