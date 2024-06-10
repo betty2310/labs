@@ -45,7 +45,7 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://cdn.tgdd.vn/hoi-dap/1322322/cam-bien-thong-minh-la-gi-co-nhung-loai-nao-ung-dung-ra-sao%20(3).jpg',
     ],
-    teacher_ids: ['6', '18'],
+    teacher_ids: ['BkGeanD'],
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 3)),
     updated_at: new Date(),
@@ -53,7 +53,7 @@ export const LabData: Labs[] = [
     number_of_students: 5,
     salary: 30,
     specialized: 'Kỹ thuật điều khiển & Tự động hóa',
-    topic_ids: ['10', '12'],
+    topic_ids: ['afe1f996-7c05-4d8d-9efa-baebd00cd99f'],
     working_time: 'fulltime',
   },
   {
