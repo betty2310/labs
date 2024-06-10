@@ -373,7 +373,7 @@ export const LabData: Labs[] = [
     number_of_students: 15,
     salary: 30,
     specialized: 'Kỹ thuật Y sinh',
-    topic_ids: ['23', '24'],
+    topic_ids: ['bf45e739-8751-43fd-a46a-7e14f0359829', '24'],
     working_time: 'fulltime',
   },
   {
@@ -391,7 +391,7 @@ export const LabData: Labs[] = [
     number_of_students: 20,
     salary: 35,
     specialized: 'Kỹ thuật Môi trường',
-    topic_ids: ['25', '26'],
+    topic_ids: ['1ed2f3f8-d324-41c9-8295-b97ff9461180'],
     working_time: 'fulltime',
   },
   {
@@ -410,7 +410,7 @@ export const LabData: Labs[] = [
     number_of_students: 18,
     salary: 32,
     specialized: 'Quản lý Tài nguyên và Môi trường',
-    topic_ids: ['27', '28'],
+    topic_ids: ['1ed2f3f8-d324-41c9-8295-b97ff9461180'],
     working_time: 'fulltime',
   },
   {
@@ -429,7 +429,7 @@ export const LabData: Labs[] = [
     number_of_students: 25,
     salary: 40,
     specialized: 'Tiếng Anh KHKT và Công nghệ',
-    topic_ids: ['29', '30'],
+    topic_ids: ['3fdb0b22-7b68-4a69-827a-b668a6c5b811', '559b045c-a1db-4c54-a6f5-020c49b2eda3'],
     working_time: 'fulltime',
   },
   {
@@ -466,7 +466,7 @@ export const LabData: Labs[] = [
     number_of_students: 25,
     salary: 40,
     specialized: 'CNTT: Kỹ thuật Máy tính',
-    topic_ids: ['35', '36'],
+    topic_ids: ['82d7f413-628d-437b-8515-52a8d9ae6738','51299b88-cf66-44d9-afb0-9f2b424f7c3d', '28e06460-cdcd-4369-af40-95150d0fd6b6'],
     working_time: 'fulltime',
   },
   {
@@ -485,7 +485,7 @@ export const LabData: Labs[] = [
     number_of_students: 20,
     salary: 35,
     specialized: 'Kỹ thuật Cơ điện tử',
-    topic_ids: ['37', '38'],
+    topic_ids: ['b4fb15e2-db64-4117-b3ad-4e3a3750c86c', '61ed5d05-8b78-4698-9230-c596e26de989'],
     working_time: 'fulltime',
   },
   {
@@ -503,7 +503,7 @@ export const LabData: Labs[] = [
     number_of_students: 22,
     salary: 38,
     specialized: 'Kỹ thuật Cơ khí',
-    topic_ids: ['39', '40'],
+    topic_ids: ['fa25da6d-e226-4bf2-b4a4-84a487e7e249'],
     working_time: 'fulltime',
   },
   {
@@ -521,7 +521,7 @@ export const LabData: Labs[] = [
     number_of_students: 20,
     salary: 35,
     specialized: 'Toán-Tin',
-    topic_ids: ['41', '42'],
+    topic_ids: ['23f908d6-06f2-48f6-ac9a-5597291ac9c1'],
     working_time: 'fulltime',
   },
   {
@@ -539,7 +539,7 @@ export const LabData: Labs[] = [
     number_of_students: 25,
     salary: 40,
     specialized: 'Hệ thống Thông tin quản lý',
-    topic_ids: ['43', '44'],
+    topic_ids: ['42b26ebd-2dbf-4681-a395-148590b54bdf'],
     working_time: 'fulltime',
   },
   {
@@ -593,7 +593,25 @@ export const LabData: Labs[] = [
     number_of_students: 22,
     salary: 38,
     specialized: 'Vật lý Kỹ thuật',
-    topic_ids: ['49', '50'],
+    topic_ids: ['58c8b11e-04c8-4679-b8fd-a2fc057ffde4'],
+    working_time: 'fulltime',
+  },
+  {
+    id: '20d2c19e-aa36-4bc1-808d-ce86b4aa94c2',
+    name: 'Kỹ thuật hạt nhân',
+    description:
+      'Phòng thí nghiệm Kỹ thuật Hạt nhân tập trung vào nghiên cứu và phát triển công nghệ năng lượng hạt nhân và an toàn bức xạ. Các dự án nghiên cứu bao gồm tối ưu hóa lò phản ứng hạt nhân, quản lý chất thải phóng xạ, và phát triển các phương pháp an toàn mới. Phòng thí nghiệm cũng chú trọng đến việc ứng dụng công nghệ hạt nhân trong y tế, công nghiệp và bảo vệ môi trường, nhằm nâng cao hiệu quả và đảm bảo an toàn.',
+    image_urls: [
+      'https://sep.hust.edu.vn/wp-content/uploads/XRD.jpg',
+    ],
+    teacher_ids: ['49', '50'],
+    created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
+    updated_at: new Date(new Date().setDate(new Date().getDate() - 3)),
+    is_open: true,
+    number_of_students: 22,
+    salary: 38,
+    specialized: 'Kỹ thuật Hạt nhân',
+    topic_ids: ['2e6f528e-f2b9-4315-b685-b179a1150d29'],
     working_time: 'fulltime',
   },
 ];
