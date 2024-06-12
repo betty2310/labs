@@ -87,7 +87,7 @@ export interface Labs {
   description: string;
   image_urls: string[];
   teacher_ids: string[];
-  topic_ids: string[];
+  topic_ids?: string[];
   specialized: Specialized;
   working_time: WorkingTime;
   is_open: boolean;
