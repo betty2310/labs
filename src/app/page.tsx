@@ -1,8 +1,18 @@
 'use client';
 
 import * as React from 'react';
+import { useState } from 'react';
 import { ListFilter } from 'lucide-react';
 
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination';
 /* eslint react/no-array-index-key: off  */
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import {
@@ -17,7 +27,25 @@ import ItemLab from '@/components/ItemLab';
 import { Button } from '@/components/ui/button';
 import { LabData } from '@/lib/database/labs';
 
+const ITEMS_PER_PAGE = 6;
+
 export default function LabOverview() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(LabData.length / ITEMS_PER_PAGE);
+  const [currentData, setCurrentData] = useState(
+    LabData.slice(0, ITEMS_PER_PAGE)
+  );
+  const handlePageChange = (pageNumber: number) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+      setCurrentData(
+        LabData.slice(
+          (pageNumber - 1) * ITEMS_PER_PAGE,
+          pageNumber * ITEMS_PER_PAGE
+        )
+      );
+    }
+  };
   return (
     <MainLayout>
       <div>
@@ -48,7 +76,7 @@ export default function LabOverview() {
               </DropdownMenu>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-4 mb-4">
-              {LabData.map(lab => (
+              {currentData.map(lab => (
                 <ItemLab
                   key={lab.id}
                   isOpen={lab.is_open}
@@ -63,6 +91,33 @@ export default function LabOverview() {
                 />
               ))}
             </div>
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    href="#"
+                    onClick={() => handlePageChange(currentPage - 1)}
+                  />
+                </PaginationItem>
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <PaginationItem key={index}>
+                    <PaginationLink
+                      href="#"
+                      onClick={() => handlePageChange(index + 1)}
+                    >
+                      {index + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+                {totalPages > 5 && <PaginationEllipsis />}
+                <PaginationItem>
+                  <PaginationNext
+                    href="#"
+                    onClick={() => handlePageChange(currentPage + 1)}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
           </div>
         </div>
       </div>
