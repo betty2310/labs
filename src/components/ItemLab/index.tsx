@@ -1,43 +1,89 @@
 'use client';
 
-import Image from 'next/image';
+import { Captions, UsersRound } from 'lucide-react';
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 interface LabProps {
   isOpen: boolean;
   name: string;
-  teacher: string;
+  numberOfteacher: number;
+  numberOftopic: number;
   numberOfStudents: number;
   lastUpdated: string;
-  imageUrls: string;
+  imageUrls?: string;
+  specialized?: string;
 }
 
 const ItemLab: React.FC<LabProps> = ({
   isOpen,
   name,
-  teacher,
+  numberOfteacher,
+  numberOftopic,
   numberOfStudents,
   lastUpdated,
   imageUrls,
+  specialized,
 }) => {
   return (
-    <div className="relative flex flex-col bg-white shadow-md rounded-md p-4">
-      <div className="flex justify-between">
-        <div className="font-semibold text-lg">{name}</div>
-        <div className="text-sm font-medium">Update {lastUpdated}</div>
-      </div>
-      <div className="relative mt-2">
-        <Image src={imageUrls} alt="lab" className="rounded-md h-40 w-full" />
-        <div
-          className={`absolute top-0 right-0 p-1 m-2 rounded-md text-white font-bold ${isOpen ? 'bg-green-500' : 'bg-red-500'}`}
-        >
-          {isOpen ? 'Open' : 'Close'}
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          <div className="flex items-center justify-between">
+            <div className="text-3xl">{name}</div>
+            <Badge variant="secondary">{lastUpdated}</Badge>
+          </div>
+          <CardDescription>{specialized}</CardDescription>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="relative">
+        <img src={imageUrls} alt="lab" className="rounded-md h-40 w-full" />
+        <div className="absolute top-4 right-8">
+          <Badge variant={isOpen ? 'default' : 'destructive'}>
+            {' '}
+            {isOpen ? 'Đang mở' : 'Đã đóng'}
+          </Badge>
         </div>
-      </div>
-      <div className="mt-2">
-        <div className="text-sm mb-1">Teacher: {teacher}</div>
-        <div className="text-sm">Number of students: {numberOfStudents}</div>
-      </div>
-    </div>
+      </CardContent>
+      <CardFooter>
+        <div>
+          <div>
+            <Button
+              variant="outline"
+              className="mb-1 py-1 px-2 text-xs mr-8"
+              size="sm"
+            >
+              <UsersRound className="mr-2 h-4 w-4" /> Giảng viên:{' '}
+              {numberOfteacher}
+            </Button>
+            <Button
+              variant="outline"
+              className="mb-2  py-1 px-2 text-xs"
+              size="sm"
+            >
+              <Captions className="mr-2 h-4 w-4" /> Chủ đề: {numberOftopic}
+            </Button>
+          </div>
+          <Button
+            variant="outline"
+            className="mb-1  py-1 px-2 text-xs"
+            size="sm"
+          >
+            <UsersRound className="mr-2 h-4 w-4" /> Sinh viên:{' '}
+            {numberOfStudents}
+          </Button>
+        </div>
+      </CardFooter>
+    </Card>
   );
 };
 
