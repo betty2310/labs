@@ -6,10 +6,12 @@ import { useTimeAgo } from 'next-timeago';
 
 import { LabData } from '@/lib/database/labs';
 import { TeacherData } from '@/lib/database/teachers';
-import type { Labs, Teacher } from '@/lib/database';
+import type { LabTopics, Labs, Teacher } from '@/lib/database';
 import CircileLoading from '@/app/loading';
 import TeacherCarousel from '@/components/LabDetail/TeacherCarousel';
 import { Button } from '@/components/ui/button';
+import { LabTopicsData } from '@/lib/database/labtopics';
+import TopicCarousel from '@/components/LabDetail/TopicCarousel';
 
 type Props = {
   params: { id: string };
@@ -18,6 +20,7 @@ type Props = {
 const LabsDetail = ({ params }: Props) => {
   const [lab, setLab] = useState<Labs>();
   const [teachers, setTeachers] = useState<Teacher[]>([]);
+  const [topics, setTopics] = useState<LabTopics[]>([]);
   const { TimeAgo } = useTimeAgo();
 
   if (!params.id) return <div>Lab not found</div>;
@@ -30,6 +33,10 @@ const LabsDetail = ({ params }: Props) => {
     lab?.teacher_ids.forEach(id => {
       const teacher = TeacherData.filter(t => t.id === id)[0];
       setTeachers(prev => [...prev, teacher]);
+    });
+    lab?.topic_ids?.forEach(id => {
+      const topic = LabTopicsData.filter(t => t.id === id)[0];
+      setTopics(prev => [...prev, topic]);
     });
   }, [lab]);
 
@@ -48,9 +55,26 @@ const LabsDetail = ({ params }: Props) => {
           <TimeAgo date={lab.updated_at} />
         </Button>
       </div>
+      <div>
+        <div className="flex gap-2 mt-4">
+          <Button variant="outline">{lab.specialized}</Button>
+          <Button variant="outline">Salary {lab.salary} $</Button>
+          <Button variant="outline">Students {lab.number_of_students}</Button>
+          <Button variant="outline">{lab.language}</Button>
+          <Button variant="outline">{lab.working_time}</Button>
+        </div>
+      </div>
+      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+        Teachers
+      </h3>
+      <TeacherCarousel teachers={teachers} />
+
+      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+        Topics
+      </h3>
+      <TopicCarousel topics={topics} />
 
       <p className="leading-7 [&:not(:first-child)]:mt-6">{lab.description}</p>
-      <TeacherCarousel teachers={teachers} />
     </div>
   );
 };
