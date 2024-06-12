@@ -4,6 +4,15 @@ import * as React from 'react';
 import { ListFilter } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination';
 /* eslint react/no-array-index-key: off  */
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import {
@@ -69,8 +78,6 @@ export default function LabOverview() {
   const [filterWorkingTime, setFilterWorkingTime] = useState<string>('');
   const [sortOption, setSortOption] = useState<string>('A-Z');
 
-  const [reloadTrigger, setReloadTrigger] = useState<number>(0);
-
   const handleFilterChangeString = (
     setter: React.Dispatch<React.SetStateAction<string>>
   ) => (value: string) => {
@@ -102,22 +109,6 @@ export default function LabOverview() {
     }
   };
 
-  const filteredLabs = LabData.filter(lab =>
-    (filterSpecialized === 'All' || filterSpecialized === '' || lab.specialized.includes(filterSpecialized)) &&
-    (filterIsOpen === 'All' || filterIsOpen === '' || (lab.is_open ? 'Open' : 'Close') === filterIsOpen) &&
-    (filterLanguage === 'All' || filterLanguage === '' || lab.language === filterLanguage) &&
-    (filterSalary === 0 || (filterSalary === 1 && lab.salary <= 10) || (lab.salary >= filterSalary && lab.salary <= filterSalary + 10) || (filterSalary === 40 && lab.salary >= filterSalary)) &&
-    (filterWorkingTime === 'All' || filterWorkingTime === '' || lab.working_time === filterWorkingTime)
-  );
-
-  function consoleLogLabs() {
-    console.log(filteredLabs);
-  }
-
-  useEffect(() => {
-    consoleLogLabs();
-  }, [filterSpecialized, filterIsOpen, filterLanguage, filterSalary, filterWorkingTime]);
-
   // Sort
   const sortLabByName = () => {
     console.log("Sort by name");
@@ -130,13 +121,13 @@ export default function LabOverview() {
   };
 
   const sortLabByCreated = () => {
-  console.log("Sort by created");
+    console.log("Sort by created");
     filteredLabs.sort((a, b) => b.created_at.getTime() - a.created_at.getTime());
     console.log(filteredLabs);
   };
 
   const sortLabByUpdate = () => {
-  console.log("Sort by updated");
+    console.log("Sort by updated");
     filteredLabs.sort((a, b) => b.updated_at.getTime() - a.updated_at.getTime());
     console.log(filteredLabs);
   };
@@ -154,6 +145,42 @@ export default function LabOverview() {
     }
   };
 
+  const ITEMS_PER_PAGE = 6;
+
+  const filteredLabs = LabData.filter(lab =>
+    (filterSpecialized === 'All' || filterSpecialized === '' || lab.specialized.includes(filterSpecialized)) &&
+    (filterIsOpen === 'All' || filterIsOpen === '' || (lab.is_open ? 'Open' : 'Close') === filterIsOpen) &&
+    (filterLanguage === 'All' || filterLanguage === '' || lab.language === filterLanguage) &&
+    (filterSalary === 0 || (filterSalary === 1 && lab.salary <= 10) || (lab.salary >= filterSalary && lab.salary <= filterSalary + 10) || (filterSalary === 40 && lab.salary >= filterSalary)) &&
+    (filterWorkingTime === 'All' || filterWorkingTime === '' || lab.working_time === filterWorkingTime)
+  );
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(filteredLabs.length / ITEMS_PER_PAGE);
+  const [currentData, setCurrentData] = useState(
+    filteredLabs.slice(0, ITEMS_PER_PAGE)
+  );
+  
+  const handlePageChange = (pageNumber: number) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+      setCurrentData(
+        filteredLabs.slice(
+          (pageNumber - 1) * ITEMS_PER_PAGE,
+          pageNumber * ITEMS_PER_PAGE
+        )
+      );
+    }
+  };
+
+  function consoleLogLabs() {
+    console.log(filteredLabs);
+  }
+
+  useEffect(() => {
+    consoleLogLabs();
+  }, [filterSpecialized, filterIsOpen, filterLanguage, filterSalary, filterWorkingTime]);
+
   return (
     <MainLayout>
       <div>
@@ -161,11 +188,11 @@ export default function LabOverview() {
           <div className="col-span-2">
             <div className="col-span-2">
               <div className='mt-[20px]'>
-                <SelectFilter key='sl-ft-1' selectValue='Specialized' selectItem={listSpecialized} onSelectChange={value => { handleFilterChangeString(setFilterSpecialized)(value); consoleLogLabs(); }} />
-                <SelectFilter key='sl-ft-2' selectValue='Status' selectItem={listIsOpen} onSelectChange={value => { handleFilterChangeString(setFilterIsOpen)(value); consoleLogLabs(); }} />
-                <SelectFilter key='sl-ft-3' selectValue='Working Time' selectItem={listWorkingTime} onSelectChange={value => { handleFilterChangeString(setFilterWorkingTime)(value); consoleLogLabs(); }} />
-                <SelectFilter key='sl-ft-4' selectValue='Language' selectItem={listLanguage} onSelectChange={value => { handleFilterChangeString(setFilterLanguage)(value); consoleLogLabs() }} />
-                <SelectFilter key='sl-ft-5' selectValue='Salary' selectItem={['All', '< 10', '10 - 20', '20 - 30', '30 - 40', '> 40']} onSelectChange={value => { handleFilterChangeNumber(setFilterSalary)(value); consoleLogLabs(); }} />
+                <SelectFilter key='sl-ft-1' selectValue='Specialized' selectItem={listSpecialized} onSelectChange={value => { handleFilterChangeString(setFilterSpecialized)(value);}} />
+                <SelectFilter key='sl-ft-2' selectValue='Status' selectItem={listIsOpen} onSelectChange={value => { handleFilterChangeString(setFilterIsOpen)(value);}} />
+                <SelectFilter key='sl-ft-3' selectValue='Working Time' selectItem={listWorkingTime} onSelectChange={value => { handleFilterChangeString(setFilterWorkingTime)(value); }} />
+                <SelectFilter key='sl-ft-4' selectValue='Language' selectItem={listLanguage} onSelectChange={value => { handleFilterChangeString(setFilterLanguage)(value);}} />
+                <SelectFilter key='sl-ft-5' selectValue='Salary' selectItem={['All', '< 10', '10 - 20', '20 - 30', '30 - 40', '> 40']} onSelectChange={value => { handleFilterChangeNumber(setFilterSalary)(value);}} />
               </div>
             </div>
           </div>
@@ -195,23 +222,52 @@ export default function LabOverview() {
               </DropdownMenu>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-4 mb-4">
-              {filteredLabs.map(lab => (
-                <ItemLab
-                  key={lab.id}
-                  isOpen={lab.is_open}
-                  name={lab.name}
-                  numberOfteacher={lab.teacher_ids.length}
-                  numberOftopic={lab.topic_ids?.length}
-                  numberOfStudents={lab.number_of_students}
-                  lastUpdated={lab.updated_at}
-                  imageUrls={lab.image_urls[0]}
-                  specialized={lab.specialized}
-                  id={lab.id}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+              {
+                currentData.map(lab => (
+                  <ItemLab
+                    key={lab.id}
+                    isOpen={lab.is_open}
+                    name={lab.name}
+                    numberOfteacher={lab.teacher_ids.length}
+                    numberOftopic={lab.topic_ids?.length}
+                    numberOfStudents={lab.number_of_students}
+                    lastUpdated={lab.updated_at}
+                    imageUrls={lab.image_urls[0]}
+                    specialized={lab.specialized}
+                    id={lab.id}
+                  />
+                ))
+              }
+            </div >
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    href="#"
+                    onClick={() => handlePageChange(currentPage - 1)}
+                  />
+                </PaginationItem>
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <PaginationItem key={index}>
+                    <PaginationLink
+                      href="#"
+                      onClick={() => handlePageChange(index + 1)}
+                    >
+                      {index + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+                {totalPages > 5 && <PaginationEllipsis />}
+                <PaginationItem>
+                  <PaginationNext
+                    href="#"
+                    onClick={() => handlePageChange(currentPage + 1)}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div >
+        </div >
       </div >
     </MainLayout >
   );
