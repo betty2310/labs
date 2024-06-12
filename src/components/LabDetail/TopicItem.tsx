@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card } from '@/components/ui/card';
 import {
   Sheet,
@@ -16,39 +15,39 @@ import { Button } from '../ui/button';
 
 type Props = {
   name: string;
-  email: string;
-  imageUrl: string;
-  phone: string;
+  description: string;
+  numberOfStudents: number;
 };
 
-export default function TeacherItem({ name, email, imageUrl, phone }: Props) {
+export default function TeacherItem({
+  name,
+  description,
+  numberOfStudents,
+}: Props) {
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Card className="w-[300px] p-4 hover:cursor-pointer">
           <div className="flex items-center gap-3">
-            <Avatar>
-              <AvatarImage src={imageUrl} alt="@teacher" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
             <div className="flex-1 space-y-1">
-              <p className="text-sm font-medium leading-none">{name}</p>
-              <p className="text-sm text-muted-foreground">{email}</p>
+              <p className="text-sm font-medium leading-none">{description}</p>
+              <p className="text-sm text-muted-foreground">
+                {numberOfStudents}
+              </p>
             </div>
           </div>
         </Card>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <img src={imageUrl} alt={name} />
           <SheetTitle>TS. {name}</SheetTitle>
         </SheetHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <p className="text-right">{email}</p>
+            <p className="text-right">{name}</p>
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <p className="text-right">{phone}</p>
+            <p className="text-right">{name}</p>
           </div>
         </div>
         <SheetFooter>
