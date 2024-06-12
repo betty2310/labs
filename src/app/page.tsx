@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { ListFilter } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 import {
   Pagination,
@@ -147,20 +147,22 @@ export default function LabOverview() {
 
   const ITEMS_PER_PAGE = 6;
 
-  const filteredLabs = LabData.filter(lab =>
-    (filterSpecialized === 'All' || filterSpecialized === '' || lab.specialized.includes(filterSpecialized)) &&
-    (filterIsOpen === 'All' || filterIsOpen === '' || (lab.is_open ? 'Open' : 'Close') === filterIsOpen) &&
-    (filterLanguage === 'All' || filterLanguage === '' || lab.language === filterLanguage) &&
-    (filterSalary === 0 || (filterSalary === 1 && lab.salary <= 10) || (lab.salary >= filterSalary && lab.salary <= filterSalary + 10) || (filterSalary === 40 && lab.salary >= filterSalary)) &&
-    (filterWorkingTime === 'All' || filterWorkingTime === '' || lab.working_time === filterWorkingTime)
-  );
+  const filteredLabs = useMemo(() =>
+    LabData.filter(lab =>
+      (filterSpecialized === 'All' || filterSpecialized === '' || lab.specialized.includes(filterSpecialized)) &&
+      (filterIsOpen === 'All' || filterIsOpen === '' || (lab.is_open ? 'Open' : 'Close') === filterIsOpen) &&
+      (filterLanguage === 'All' || filterLanguage === '' || lab.language === filterLanguage) &&
+      (filterSalary === 0 || (filterSalary === 1 && lab.salary <= 10) || (lab.salary >= filterSalary && lab.salary <= filterSalary + 10) || (filterSalary === 40 && lab.salary >= filterSalary)) &&
+      (filterWorkingTime === 'All' || filterWorkingTime === '' || lab.working_time === filterWorkingTime)
+    )
+    , [filterSpecialized, filterIsOpen, filterLanguage, filterSalary, filterWorkingTime]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(filteredLabs.length / ITEMS_PER_PAGE);
   const [currentData, setCurrentData] = useState(
     filteredLabs.slice(0, ITEMS_PER_PAGE)
   );
-  
+
   const handlePageChange = (pageNumber: number) => {
     if (pageNumber >= 1 && pageNumber <= totalPages) {
       setCurrentPage(pageNumber);
@@ -172,6 +174,11 @@ export default function LabOverview() {
       );
     }
   };
+
+  useEffect(() => {
+    setCurrentPage(1);
+    setCurrentData(filteredLabs.slice(0, ITEMS_PER_PAGE));
+  }, [filteredLabs]);
 
   function consoleLogLabs() {
     console.log(filteredLabs);
@@ -188,11 +195,11 @@ export default function LabOverview() {
           <div className="col-span-2">
             <div className="col-span-2">
               <div className='mt-[20px]'>
-                <SelectFilter key='sl-ft-1' selectValue='Specialized' selectItem={listSpecialized} onSelectChange={value => { handleFilterChangeString(setFilterSpecialized)(value);}} />
-                <SelectFilter key='sl-ft-2' selectValue='Status' selectItem={listIsOpen} onSelectChange={value => { handleFilterChangeString(setFilterIsOpen)(value);}} />
+                <SelectFilter key='sl-ft-1' selectValue='Specialized' selectItem={listSpecialized} onSelectChange={value => { handleFilterChangeString(setFilterSpecialized)(value); }} />
+                <SelectFilter key='sl-ft-2' selectValue='Status' selectItem={listIsOpen} onSelectChange={value => { handleFilterChangeString(setFilterIsOpen)(value); }} />
                 <SelectFilter key='sl-ft-3' selectValue='Working Time' selectItem={listWorkingTime} onSelectChange={value => { handleFilterChangeString(setFilterWorkingTime)(value); }} />
-                <SelectFilter key='sl-ft-4' selectValue='Language' selectItem={listLanguage} onSelectChange={value => { handleFilterChangeString(setFilterLanguage)(value);}} />
-                <SelectFilter key='sl-ft-5' selectValue='Salary' selectItem={['All', '< 10', '10 - 20', '20 - 30', '30 - 40', '> 40']} onSelectChange={value => { handleFilterChangeNumber(setFilterSalary)(value);}} />
+                <SelectFilter key='sl-ft-4' selectValue='Language' selectItem={listLanguage} onSelectChange={value => { handleFilterChangeString(setFilterLanguage)(value); }} />
+                <SelectFilter key='sl-ft-5' selectValue='Salary' selectItem={['All', '< 10', '10 - 20', '20 - 30', '30 - 40', '> 40']} onSelectChange={value => { handleFilterChangeNumber(setFilterSalary)(value); }} />
               </div>
             </div>
           </div>
@@ -213,11 +220,11 @@ export default function LabOverview() {
                   <DropdownMenuLabel>Sort by</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuCheckboxItem checked={sortOption === 'A-Z'}
-                    onCheckedChange={() => handleSortChange('A-Z')}>
+                    onChange={() => handleSortChange('A-Z')}>
                     A-Z
                   </DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem onCheckedChange={() => handleSortChange('Updated')}>Updated</DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem onCheckedChange={() => handleSortChange('Created')}>Created</DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem checked={sortOption === 'Updated'} onChange={() => handleSortChange('Updated')}>Updated</DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem onChange={() => handleSortChange('Created')}>Created</DropdownMenuCheckboxItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
