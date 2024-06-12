@@ -463,7 +463,6 @@ export const LabData: Labs[] = [
       'Lab này tập trung vào nghiên cứu và phát triển các hệ thống và thiết bị phần cứng và phần mềm trong lĩnh vực công nghệ thông tin. Các dự án nghiên cứu bao gồm phát triển các vi mạch tích hợp, hệ thống nhúng, và ứng dụng IoT.',
     image_urls: [
       'https://hust.edu.vn/uploads/sys/news/2022/03/1602-news-3.112004.28859.jpg',
-      'https://umanitoba.ca/explore/sites/explore/files/styles/3x2_900w/public/2021-01/computer-engineering-skills.jpg?itok=inFb_xVc',
     ],
     teacher_ids: ['35', '36'],
     language: 'english',
@@ -483,7 +482,6 @@ export const LabData: Labs[] = [
       'Lab này tập trung vào nghiên cứu và phát triển các hệ thống và thiết bị kết hợp cả cơ và điện tử, nhằm tạo ra các giải pháp kỹ thuật toàn diện cho các ứng dụng công nghiệp và dân dụng. Các dự án nghiên cứu tập trung vào việc phát triển các thiết bị tự động hóa, robot, và máy móc thông minh.',
     image_urls: [
       'https://hust.edu.vn/uploads/sys/news/2022/03/1703-news-1.546402.28767.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/e/e0/Robot_worker.jpg',
     ],
     teacher_ids: ['37', '38'],
     language: 'english',
@@ -521,7 +519,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào việc áp dụng các phương pháp và công cụ toán học trong lĩnh vực công nghệ thông tin. Các dự án nghiên cứu bao gồm phát triển các thuật toán và mô hình toán học để giải quyết các vấn đề phức tạp trong khoa học máy tính và công nghệ thông tin.',
     image_urls: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKevEzygpET_fg9MAHBaAX8UqchB_6MJczA&s',
       'https://4words.edu.vn/wp-content/uploads/2021/05/Khoa-h%E1%BB%8Dc-m%C3%A1y-t%C3%ADnh.jpg',
     ],
     teacher_ids: ['41', '42'],
@@ -540,7 +537,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và phát triển các hệ thống thông tin quản lý, nhằm hỗ trợ quản lý và ra quyết định hiệu quả trong các tổ chức và doanh nghiệp. Các dự án nghiên cứu tập trung vào việc phát triển các hệ thống CRM, ERP, và Business Intelligence để cải thiện quản lý dữ liệu và thông tin.',
     image_urls: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwI_4pk9d5-iCtcmD-l3PyGohTk9jl7EqDAw&s',
       'https://tuyensinhso.vn/images/files/tuyensinhso.com/H%E1%BB%87-th%E1%BB%91ng-th%C3%B4ng-tin-qu%E1%BA%A3n-l%C3%BD-1.jpg',
     ],
     teacher_ids: ['43', '44'],
@@ -559,7 +555,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và phát triển các vật liệu mới và tiên tiến, nhằm cải thiện hiệu suất và tính năng của sản phẩm và quy trình công nghệ. Các dự án nghiên cứu tập trung vào việc phát triển các vật liệu nano, vật liệu siêu nhẹ và siêu cứng, và vật liệu chống ăn mòn.',
     image_urls: [
-      'https://sep.hust.edu.vn/wp-content/uploads/PhysicsLab-400x300.jpg',
       'https://ts.hust.edu.vn/storage/app/public/trainings/September2023/1c3f6fb5879f5dc1048e.jpg',
     ],
     teacher_ids: ['45', '46'],
