@@ -2,6 +2,8 @@
 
 import { Captions, UsersRound } from 'lucide-react';
 import Link from 'next/link';
+import { useTimeAgo } from 'next-timeago';
+
 import {
   Card,
   CardContent,
@@ -13,7 +15,6 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { useTimeAgo } from 'next-timeago';
 interface LabProps {
   isOpen: boolean;
   name: string;
@@ -67,7 +68,7 @@ const ItemLab: React.FC<LabProps> = ({
           </div>
         </CardContent>
         <CardFooter>
-          <div className='flex gap-4'>
+          <div className="flex gap-4">
             <Button
               variant="outline"
               className="mb-1 py-1 px-2 text-xs"

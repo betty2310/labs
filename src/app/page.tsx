@@ -1,6 +1,9 @@
 'use client';
+
 import * as React from 'react';
 import { ListFilter } from 'lucide-react';
+
+/* eslint react/no-array-index-key: off  */
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import {
   DropdownMenu,
@@ -13,7 +16,6 @@ import {
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -22,6 +24,7 @@ import {
 import ItemLab from '@/components/ItemLab';
 import { Button } from '@/components/ui/button';
 import { LabData } from '@/lib/database/labs';
+
 type Lab = {
   id: string;
   name: string;
@@ -104,7 +107,7 @@ export default function LabOverview() {
               <PaginationContent>
                 <PaginationItem>
                   <PaginationPrevious
-                    onClick={() => paginate(currentPage - 1)}                   
+                    onClick={() => paginate(currentPage - 1)}
                   />
                 </PaginationItem>
                 {Array.from({ length: totalPages }).map((_, index) => (
