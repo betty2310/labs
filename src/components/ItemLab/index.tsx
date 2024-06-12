@@ -19,7 +19,7 @@ interface LabProps {
   isOpen: boolean;
   name: string;
   numberOfteacher: number;
-  numberOftopic: number;
+  numberOftopic?: number;
   numberOfStudents: number;
   lastUpdated: Date;
   imageUrls?: string;
@@ -46,7 +46,7 @@ const ItemLab: React.FC<LabProps> = ({
         <CardHeader>
           <CardTitle>
             <div className="flex items-start justify-between">
-              <div className="text-3xl w-[320px] h-[80px]">{name}</div>
+              <div className="text-3xl w-[400px] h-[80px]">{name}</div>
               <Badge variant="secondary">
                 <TimeAgo date={lastUpdated} />
               </Badge>
@@ -68,7 +68,7 @@ const ItemLab: React.FC<LabProps> = ({
           </div>
         </CardContent>
         <CardFooter>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-col xl:flex-row">
             <Button
               variant="outline"
               className="mb-1 py-1 px-2 text-xs"
