@@ -2,6 +2,7 @@
 
 /* eslint react/jsx-props-no-spreading: off */
 import * as React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { Check, ChevronRight, Circle } from 'lucide-react';
 
