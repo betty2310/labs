@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { ListFilter } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 
 import {
   Pagination,
@@ -83,98 +83,71 @@ export default function LabOverview() {
 
   const handleFilterChangeString =
     (setter: React.Dispatch<React.SetStateAction<string>>) =>
-    (value: string) => {
-      setter(value);
-    };
+      (value: string) => {
+        setter(value);
+      };
 
   const handleFilterChangeNumber =
     (setter: React.Dispatch<React.SetStateAction<number>>) =>
-    (value: string) => {
-      switch (value) {
-        case 'All':
-          setter(0);
-          break;
-        case '< 10':
-          setter(1);
-          break;
-        case '10 - 20':
-          setter(10);
-          break;
-        case '20 - 30':
-          setter(20);
-          break;
-        case '30 - 40':
-          setter(30);
-          break;
-        case '> 40':
-          setter(40);
-          break;
-        default:
-          setter(0);
-          break;
-      }
-    };
+      (value: string) => {
+        switch (value) {
+          case 'All':
+            setter(0);
+            break;
+          case '< 10':
+            setter(1);
+            break;
+          case '10 - 20':
+            setter(10);
+            break;
+          case '20 - 30':
+            setter(20);
+            break;
+          case '30 - 40':
+            setter(30);
+            break;
+          case '> 40':
+            setter(40);
+            break;
+          default:
+            setter(0);
+            break;
+        }
+      };
 
-  // Sort
+
 
   const ITEMS_PER_PAGE = 6;
 
-  const filteredLabs = LabData.filter(
-    lab =>
-      (filterSpecialized === 'All' ||
-        filterSpecialized === '' ||
-        lab.specialized.includes(filterSpecialized)) &&
-      (filterIsOpen === 'All' ||
-        filterIsOpen === '' ||
-        (lab.is_open ? 'Open' : 'Close') === filterIsOpen) &&
-      (filterLanguage === 'All' ||
-        filterLanguage === '' ||
-        lab.language === filterLanguage) &&
-      (filterSalary === 0 ||
-        (filterSalary === 1 && lab.salary <= 10) ||
-        (lab.salary >= filterSalary && lab.salary <= filterSalary + 10) ||
-        (filterSalary === 40 && lab.salary >= filterSalary)) &&
-      (filterWorkingTime === 'All' ||
-        filterWorkingTime === '' ||
-        lab.working_time === filterWorkingTime)
-  );
-  const sortLabByName = () => {
-    console.log('Sort by name');
-    filteredLabs.sort((a, b) => {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
-    });
-    console.log(filteredLabs);
-  };
+  const filteredLabs = useMemo(() =>
+    LabData.filter(lab =>
+      (filterSpecialized === 'All' || filterSpecialized === '' || lab.specialized.includes(filterSpecialized)) &&
+      (filterIsOpen === 'All' || filterIsOpen === '' || (lab.is_open ? 'Open' : 'Close') === filterIsOpen) &&
+      (filterLanguage === 'All' || filterLanguage === '' || lab.language === filterLanguage) &&
+      (filterSalary === 0 || (filterSalary === 1 && lab.salary <= 10) || (lab.salary >= filterSalary && lab.salary <= filterSalary + 10) || (filterSalary === 40 && lab.salary >= filterSalary)) &&
+      (filterWorkingTime === 'All' || filterWorkingTime === '' || lab.working_time === filterWorkingTime)
+    )
+    , [filterSpecialized, filterIsOpen, filterLanguage, filterSalary, filterWorkingTime]);
 
-  const sortLabByCreated = () => {
-    console.log('Sort by created');
-    filteredLabs.sort(
-      (a, b) => b.created_at.getTime() - a.created_at.getTime()
-    );
-    console.log(filteredLabs);
-  };
-
-  const sortLabByUpdate = () => {
-    console.log('Sort by updated');
-    filteredLabs.sort(
-      (a, b) => b.updated_at.getTime() - a.updated_at.getTime()
-    );
-    console.log(filteredLabs);
-  };
-  const handleSortChange = (option: string) => {
+  // Sort
+  const handleSortChange = useCallback((option: string) => {
     setSortOption(option);
+    let sortedLabs = [...filteredLabs];
     if (option === 'A-Z') {
-      sortLabByName();
+      sortedLabs.sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      });
     }
     if (option === 'Created') {
-      sortLabByCreated();
+      sortedLabs.sort((a, b) => b.created_at.getTime() - a.created_at.getTime());
     }
     if (option === 'Updated') {
-      sortLabByUpdate();
+      sortedLabs.sort((a, b) => b.updated_at.getTime() - a.updated_at.getTime());
     }
-  };
+    setCurrentData(sortedLabs.slice(0, ITEMS_PER_PAGE));
+  }, [filteredLabs]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(filteredLabs.length / ITEMS_PER_PAGE);
@@ -194,6 +167,11 @@ export default function LabOverview() {
     }
   };
 
+  useEffect(() => {
+    setCurrentPage(1);
+    setCurrentData(filteredLabs.slice(0, ITEMS_PER_PAGE));
+  }, [filteredLabs, handleSortChange]);
+
   function consoleLogLabs() {
     console.log(filteredLabs);
   }
@@ -206,6 +184,7 @@ export default function LabOverview() {
     filterLanguage,
     filterSalary,
     filterWorkingTime,
+    handleSortChange
   ]);
 
   return (
@@ -288,11 +267,13 @@ export default function LabOverview() {
                     A-Z
                   </DropdownMenuCheckboxItem>
                   <DropdownMenuCheckboxItem
+                    checked={sortOption === 'Updated'}
                     onCheckedChange={() => handleSortChange('Updated')}
                   >
                     Updated
                   </DropdownMenuCheckboxItem>
                   <DropdownMenuCheckboxItem
+                    checked={sortOption === 'Created'}
                     onCheckedChange={() => handleSortChange('Created')}
                   >
                     Created
