@@ -1,24 +1,30 @@
-/* eslint-disable simple-import-sort/imports */
-
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 import type { FC } from 'react';
 
+import AppIcon from '@/public/icon.svg';
 import type { CurrentUserProps } from '@/types';
 
 const Header: FC<CurrentUserProps> = () => {
   return (
-    <header className="px-8 py-8 flex justify-between bg-gray-900 text-violet-50">
-      <Link href="/">
-        <span>Home</span>
-      </Link>
-      <button
-        className="bg-violet-50 text-gray-900 px-4 py-2 rounded-md"
-        type="button"
-      >
-        Login
-      </button>
+    <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+      <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+        <div className="rounded-lg overflow-hidden">
+          <Image
+            src={AppIcon}
+            alt="Acme Inc"
+            width={45}
+            height={45}
+            className="rounded-lg"
+          />
+        </div>
+        <Link
+          href="/"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Dashboard
+        </Link>
+      </nav>
     </header>
   );
 };

@@ -22,15 +22,21 @@ const fontSans = FontSans({
 export default async function RootLayout({ children }: ChildrenProps) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/icon.svg" />
+      </head>
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
           fontSans.variable
         )}
       >
-        <Header />
-        <section className="flex-1">{children}</section>
-        <MainFooter />
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          {/* Content section that grows to fill available space */}
+          <section className="flex-1">{children}</section>
+          <MainFooter />
+        </div>
       </body>
     </html>
   );
