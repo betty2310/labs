@@ -26,7 +26,7 @@ const ItemLab: React.FC<LabProps> = ({
         <div className="text-sm font-medium">Update {lastUpdated}</div>
       </div>
       <div className="relative mt-2">
-        <Image src={imageUrls} alt="lab" className="rounded-md h-40 w-full" />
+        <img src={imageUrls} alt="lab" className="rounded-md h-40 w-full" />
         <div
           className={`absolute top-0 right-0 p-1 m-2 rounded-md text-white font-bold ${isOpen ? 'bg-green-500' : 'bg-red-500'}`}
         >
