@@ -27,6 +27,7 @@ import ItemLab from '@/components/ItemLab';
 import { Button } from '@/components/ui/button';
 import SelectFilter from '@/components/SelectFilters';
 import { LabData } from '@/lib/database/labs';
+import SearchDialog from '@/components/SearchDialog';
 
 function saveListData() {
   const listSpecialized: string[] = [];
@@ -189,6 +190,7 @@ export default function LabOverview() {
 
   return (
     <MainLayout>
+      <SearchDialog/>
       <div>
         <div className="grid grid-cols-10 gap-4 px-8 mt-8 mb-8">
           <div className="col-span-2">
