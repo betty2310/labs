@@ -27,6 +27,7 @@ export const LabTopicsData: LabTopics[] = [
     number_of_students: 2,
     created_at: new Date(),
     updated_at: new Date(),
+    fundings: ['Vinfast', 'Vingroup', 'Vincom'],
     teacher_id: '4',
   },
   {

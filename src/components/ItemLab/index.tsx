@@ -2,6 +2,7 @@
 
 import { Captions, UsersRound } from 'lucide-react';
 import Link from 'next/link';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { useTimeAgo } from 'next-timeago';
 
 import {
@@ -45,12 +46,10 @@ const ItemLab: React.FC<LabProps> = ({
       <Card>
         <CardHeader>
           <CardTitle>
-            <div className="flex items-start justify-between">
-              <div className="text-3xl w-[400px] h-[80px]">{name}</div>
-              <Badge variant="secondary">
-                <TimeAgo date={lastUpdated} />
-              </Badge>
-            </div>
+            {name}
+            <Badge variant="secondary">
+              <TimeAgo date={lastUpdated} />
+            </Badge>
             <CardDescription>{specialized}</CardDescription>
           </CardTitle>
         </CardHeader>
