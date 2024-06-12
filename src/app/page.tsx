@@ -132,7 +132,7 @@ export default function LabOverview() {
   // Sort
   const handleSortChange = useCallback((option: string) => {
     setSortOption(option);
-    let sortedLabs = [...filteredLabs]; // Tạo ra bản sao của mảng filteredLabs
+    let sortedLabs = [...filteredLabs];
     if (option === 'A-Z') {
       sortedLabs.sort((a, b) => {
         if (a.name < b.name) return -1;
