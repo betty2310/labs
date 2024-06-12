@@ -7,7 +7,6 @@ export const LabData: Labs[] = [
     description:
       "Thiết kế vi mạch (VLSI - Very Large Scale Integration) là một lĩnh vực kỹ thuật đặc thù trong ngành điện tử, chuyên về thiết kế và phát triển các mạch tích hợp có mật độ linh kiện rất cao. Vi mạch là nền tảng của hầu hết các thiết bị điện tử ngày nay, từ điện thoại thông minh, máy tính cá nhân đến các hệ thống ô tô và các thiết bị IoT (Internet of Things). Thiết kế vi mạch đòi hỏi sự hiểu biết sâu rộng về cả phần cứng và phần mềm, cũng như các công cụ CAD (Computer-Aided Design) phức tạp để tạo ra các chip có thể thực hiện hàng triệu hoặc thậm chí hàng tỷ hoạt động mỗi giây.\n\nQuy trình thiết kế vi mạch bắt đầu từ việc xác định các yêu cầu hệ thống và lên kế hoạch cho cấu trúc chip. Tiếp theo, các kỹ sư tiến hành thiết kế các thành phần chức năng của vi mạch, bao gồm các mạch số và tương tự. Sau khi thiết kế xong, vi mạch được mô phỏng và kiểm tra để đảm bảo rằng nó hoạt động đúng như mong muốn. Nếu mọi thứ đều ổn, vi mạch sẽ được gửi đi để chế tạo trong các nhà máy sản xuất chip. Quy trình này có thể kéo dài hàng tháng hoặc thậm chí hàng năm, phụ thuộc vào mức độ phức tạp của chip.\n\nHệ thống nhúng (Embedded Systems) là các hệ thống điện tử được thiết kế để thực hiện các chức năng cụ thể trong một thiết bị lớn hơn. Chúng được 'nhúng' vào trong thiết bị và có thể bao gồm cả phần cứng lẫn phần mềm. Hệ thống nhúng có mặt trong hầu hết các thiết bị công nghệ hiện đại như điện thoại di động, máy ảnh kỹ thuật số, thiết bị gia dụng thông minh, và xe hơi tự hành.\n\nViệc kết hợp giữa thiết kế vi mạch và hệ thống nhúng tạo ra các sản phẩm có khả năng tối ưu hóa hiệu năng và tiêu thụ năng lượng thấp. Các vi mạch được thiết kế để đáp ứng yêu cầu cụ thể của hệ thống nhúng, từ việc xử lý tín hiệu, quản lý dữ liệu đến thực hiện các thuật toán phức tạp. Sự tích hợp này cho phép các thiết bị nhúng hoạt động nhanh hơn, hiệu quả hơn và tiết kiệm năng lượng hơn.\n\nỨng dụng của vi mạch và hệ thống nhúng rất rộng lớn. Trong công nghiệp ô tô, các hệ thống nhúng được sử dụng để kiểm soát động cơ, hệ thống phanh và hệ thống giải trí. Trong y tế, vi mạch và hệ thống nhúng giúp theo dõi tình trạng sức khỏe và hỗ trợ các thiết bị cấy ghép. Tuy nhiên, việc phát triển các vi mạch và hệ thống nhúng cũng đối mặt với nhiều thách thức như yêu cầu về hiệu suất cao, kích thước nhỏ gọn và tiêu thụ năng lượng thấp.\n\nTrong tương lai, thiết kế vi mạch và hệ thống nhúng sẽ tiếp tục phát triển mạnh mẽ cùng với sự tiến bộ của công nghệ. Với sự gia tăng về nhu cầu của các thiết bị thông minh và kết nối, các kỹ sư sẽ tiếp tục đẩy mạnh việc tích hợp vi mạch và hệ thống nhúng để tạo ra các sản phẩm tiên tiến hơn. Công nghệ như trí tuệ nhân tạo (AI) và học máy (ML) sẽ ngày càng được tích hợp vào các hệ thống nhúng, mở ra các khả năng mới cho các thiết bị thông minh.\n\nThiết kế vi mạch và hệ thống nhúng không chỉ là những lĩnh vực kỹ thuật phức tạp mà còn là những yếu tố cốt lõi thúc đẩy sự phát triển của công nghệ hiện đại. Sự kết hợp giữa vi mạch và hệ thống nhúng đang tạo ra những thay đổi lớn trong cách chúng ta sống và làm việc, từ việc cải thiện hiệu suất của các thiết bị điện tử đến việc tạo ra các giải pháp thông minh cho các thách thức toàn cầu. Sự phát triển trong các lĩnh vực này hứa hẹn mang lại nhiều tiến bộ đột phá trong tương lai, góp phần xây dựng một thế giới kết nối và thông minh hơn.",
     image_urls: [
-      'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje0t9MqvOy7ydtuiyFNrJjG6R52EwYP1FmY4Qr7zzTIcOL7OsLsp_2QVu8k4_L9YCNajRppCinGOIRfwlDkAmwX-jtZQg5zgTQ7IkMdCIJdO0_iw6J1immMIGofnio9CA9rRNF-wRK8qPzHqKoYBQQliWhofsUsN8yrDdg4fmwz9o48yCWGZnQ4bLUqY8/w0/lo-trinh-hoc-thiet-ke-vi-mach-dien-tu-cho-nguoi-moi-bat-dau.jpg',
       'https://vnanet.vn/Data/Articles/2023/11/08/7069805/vna_potal_dai_hoc_quoc_gia_tpho_chi_minh_dau_tu_trang_thiet_bi_hien_dai_dap_ung_yeu_cau_nghien_cuu_dao_tao_ve_vi_mach_stand.jpg',
     ],
     teacher_ids: ['1', '2'],
@@ -85,7 +84,6 @@ export const LabData: Labs[] = [
     description:
       'Trí tuệ nhân tạo (AI) và học máy (ML) là hai lĩnh vực công nghệ đang phát triển mạnh mẽ và có ứng dụng rộng rãi trong nhiều lĩnh vực khác nhau. AI và ML giúp máy tính học hỏi và tự động hoá các tác vụ mà trước đây chỉ có con người mới có thể thực hiện được.\n\nTrí tuệ nhân tạo (AI) là lĩnh vực nghiên cứu và phát triển các hệ thống máy tính có khả năng thực hiện các tác vụ thông minh mà trước đây chỉ có con người mới có thể thực hiện được. Các ứng dụng của AI bao gồm nhận dạng giọng nói, nhận dạng hình ảnh, xử lý ngôn ngữ tự nhiên, và học máy.\n\nHọc máy (ML) là một phần của trí tuệ nhân tạo, tập trung vào việc phát triển các thuật toán và mô hình máy học có khả năng học hỏi từ dữ liệu và cải thiện hiệu suất theo thời gian. Các ứng dụng của học máy bao gồm dự đoán, phân loại, phân cụm, và học tăng cường.\n\nAI và ML có nhiều ứng dụng trong thế giới thực, từ công nghệ thông tin đến y tế, tài chính, và sản xuất. Trong công nghệ thông tin, AI và ML được sử dụng để cải thiện trải nghiệm người dùng, tối ưu hóa quy trình làm việc, và bảo vệ an ninh thông tin. Trong y tế, AI và ML giúp phân tích dữ liệu y tế, dự đoán bệnh tật, và hỗ trợ quyết định lâm sàng. Trong tài chính, AI và ML được sử dụng để phân tích dữ liệu tài chính, dự đoán xu hướng thị trường, và quản lý rủi ro.\n\nVới sự phát triển của công nghệ, AI và ML hứa hẹn mang lại nhiều cơ hội mới cho xã hội. Sự kết hợp giữa AI và ML với các công nghệ khác như blockchain, Internet of Things (IoT), và trí tuệ nhân tạo mở rộng (XAI) sẽ mở ra những tiềm năng mới trong việc tạo ra các giải pháp sáng tạo và hiệu quả cho con người.',
     image_urls: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo_4JvYC8XrWAWm_8VVZ_gyiC5Sdz-rGJHDg&s',
       'https://nld.mediacdn.vn/2018/12/1/photo-1-15436382740761548685066.jpg',
     ],
     teacher_ids: ['8', '20'],
@@ -142,7 +140,6 @@ export const LabData: Labs[] = [
     description:
       'Công nghệ 5G là một trong những công nghệ tiên tiến nhất trong lĩnh vực truyền thông di động, mang lại tốc độ truy cập Internet nhanh hơn, ổn định hơn, và đáng tin cậy hơn. 5G không chỉ cung cấp tốc độ truy cập Internet cao hơn mà còn mở ra nhiều cơ hội mới cho các ứng dụng công nghệ như trí tuệ nhân tạo (AI), Internet of Things (IoT), và xe tự hành.',
     image_urls: [
-      'https://cdn.tgdd.vn/Files/2021/03/05/1332924/5g-la-gi-va-tai-sao-5g-la-cong-nghe-quan-trong-nhat-cho-tuong-lai-1.jpg',
       'https://saigonict.com/wp-content/uploads/2021/07/saigonict-cyber-securityblog-5g.jpg',
     ],
     teacher_ids: ['11', '23'],
@@ -161,7 +158,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và ứng dụng các công nghệ sinh học và kỹ thuật nano trong việc thiết kế và phát triển các sản phẩm và dịch vụ mới trong lĩnh vực y tế, môi trường, và nông nghiệp.',
     image_urls: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVi5oiwEOCWOrRCvj84a72GQlx858i88FLHg&s',
       'https://scls.hust.edu.vn/uploads/scls/tuyen-sinh/2024_04/image-20240415111923-7.jpeg',
     ],
     teacher_ids: ['1', '2'],
@@ -200,7 +196,7 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và phát triển các công nghệ và phương pháp giáo dục sáng tạo, nhằm cải thiện trải nghiệm học tập và giảng dạy trong các cấp học và môi trường học tập khác nhau.',
     image_urls: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAWFL9PgGdjZj3FGkpWCHauGs8Q7GuZV4Hw&amp;s',
+      'https://www.vietanhschool.edu.vn/wp-content/uploads/2020/06/TU-DUY.jpg',
     ],
     teacher_ids: ['5', '6'],
     language: 'english',
@@ -219,7 +215,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và phát triển các thiết bị và hệ thống điện tử công suất cao và các nguồn năng lượng tái tạo, nhằm nâng cao hiệu suất và ổn định của hệ thống điện.',
     image_urls: [
-      'https://educationaltechnology.net/wp-content/uploads/2016/10/educational-technology.png',
       'https://nazmidincer.com/assets/img/what-is-educational-technology.jpg',
     ],
     teacher_ids: ['7', '8'],
@@ -239,7 +234,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và phát triển các hệ thống điều khiển tự động và robot, áp dụng trong các ứng dụng công nghiệp, y tế, và dịch vụ.',
     image_urls: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY7YLT2tb7L0Z4s11KWfJHV9KajMAvT7WZTg&s',
       'https://chuyenthietbi.com/wp-content/uploads/2021/07/Robot-giao-duc-NAO-Robot-Power-V6.jpg',
     ],
     teacher_ids: ['9', '10'],
@@ -278,7 +272,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và phát triển các phương pháp quản lý sản xuất và vận hành hiệu quả, nhằm tối ưu hóa các quy trình và tăng cường năng suất trong môi trường công nghiệp.',
     image_urls: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4c8-SZOLV2DiNglrOlQwrgE_p1zJk3j9pxw&s',
       'https://www.pace.edu.vn/uploads/news/2023/09/1-nhan-vien-quan-ly-san-xuat.jpg',
     ],
     teacher_ids: ['13', '14'],
@@ -298,7 +291,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và phát triển các chiến lược quản trị kinh doanh và phát triển doanh nghiệp, nhằm tối ưu hóa hoạt động kinh doanh và tạo ra giá trị cho cộng đồng.',
     image_urls: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8WmhJlNx3QqCRdhd3lAHcsCqSoQljDxSw6A&s',
       'https://www.slideteam.net/media/catalog/product/cache/1280x720/t/h/three_months_business_administration_strategy_roadmap_slide01.jpg',
     ],
     teacher_ids: ['15', '16'],
@@ -318,7 +310,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và phát triển các phương pháp kế toán và báo cáo tài chính, nhằm cung cấp thông tin tài chính chính xác và minh bạch cho các doanh nghiệp và cơ quan quản lý.',
     image_urls: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgR3bYwcn9hQGkAIW5RmxapsgKDJXvvElp1w&s',
       'https://bmi.edu.vn/uploads/images/images974329_ketoan.jpg',
     ],
     teacher_ids: ['17', '18'],
@@ -359,7 +350,6 @@ export const LabData: Labs[] = [
       'Lab này tập trung vào nghiên cứu và phát triển các thiết bị và hệ thống điện tử và viễn thông, nhằm cung cấp các dịch vụ truyền thông và kỹ thuật số hiệu quả cho các tổ chức và cá nhân.',
     image_urls: [
       'https://3.imimg.com/data3/QF/HB/MY-16673212/data-communication-laboratory.png',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqRyZei3He9oMYkn2hX7vpXnP7c0YlqGYwLA&s',
     ],
     teacher_ids: ['21', '22'],
     language: 'english',
@@ -398,7 +388,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và phát triển các giải pháp kỹ thuật và công nghệ để bảo vệ và khôi phục môi trường, bao gồm xử lý nước, xử lý chất thải, và quản lý tài nguyên tự nhiên. Các dự án nghiên cứu tập trung vào việc phát triển các phương pháp xử lý nước hiệu quả và giảm thiểu tác động tiêu cực đến môi trường.',
     image_urls: [
-      'https://example.com/lab13.jpghttps://tuyensinh.ut.edu.vn/wp-content/uploads/2023/04/image10-1.png',
       'https://ts.huit.edu.vn/tttstt/images/nganh-dao-tao-dh/nganh-cong-nghe-ky-thuat-moi-truong.jpg',
     ],
     teacher_ids: ['25', '26'],
@@ -417,7 +406,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào nghiên cứu và phát triển các chiến lược quản lý tài nguyên tự nhiên và môi trường, nhằm bảo vệ và tối ưu hóa sử dụng tài nguyên tự nhiên cũng như giảm thiểu tác động tiêu cực đến môi trường. Các dự án nghiên cứu tập trung vào việc quản lý rừng, quản lý đất, và bảo tồn động vật hoang dã.',
     image_urls: [
-      'https://cres.edu.vn/wp-content/uploads/2023/07/347445734_185889844448677_7457243090951415156_n-e1688447010205.jpg',
       'https://en.mahidol.ac.th/images/clusters/narual-management.jpg',
     ],
     teacher_ids: ['27', '28'],
@@ -437,7 +425,6 @@ export const LabData: Labs[] = [
     description:
       'Lab này tập trung vào việc cải thiện kỹ năng Tiếng Anh cho sinh viên trong lĩnh vực Khoa học và Công nghệ. Các hoạt động học tập bao gồm học từ vựng và ngữ pháp chuyên ngành, luyện nghe và giao tiếp, cũng như viết và đọc các văn bản khoa học.',
     image_urls: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkaNdWB7_82Qy4aX1nuLJQ-VLOsqq6V72gBQ&s',
       'https://ingla.co.uk/wp-content/uploads/2021/03/WHY-ENGLISH.jpg',
     ],
     teacher_ids: ['29', '30'],
@@ -458,7 +445,6 @@ export const LabData: Labs[] = [
       'Lab này tập trung vào nghiên cứu và phát triển các hệ thống và thiết bị liên quan đến nhiệt, bao gồm máy nén, tản nhiệt, và năng lượng nhiệt. Các dự án nghiên cứu tập trung vào tối ưu hóa hiệu suất và tiết kiệm năng lượng trong các ứng dụng công nghiệp và dân dụng.',
     image_urls: [
       'https://dut.udn.vn/Files/admin/images/Gioi_thieu/KhoaNhiet/CSVC/H03.JPG',
-      'https://trangtuyensinh.com.vn/wp-content/uploads/2022/02/nganh-ky-thuat-nhiet.jpg',
     ],
     teacher_ids: ['31', '32'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 8)),
@@ -593,7 +579,7 @@ export const LabData: Labs[] = [
       'Lab này tập trung vào nghiên cứu và phát triển các vật liệu polymer và composite, nhằm cải thiện tính năng và hiệu suất của các sản phẩm trong các ngành công nghiệp đa dạng như ô tô, hàng không, và y tế. Các dự án nghiên cứu tập trung vào việc phát triển các vật liệu nhẹ, cứng, và bền vững môi trường.',
     image_urls: [
       'https://ts.hust.edu.vn/storage/app/public/trainings/September2023/Polyme_02.jpg',
-      '',
+      'https://ts.hust.edu.vn/storage/app/public/trainings/September2023/Polyme_01.jpg',
     ],
     teacher_ids: ['49', '50'],
     created_at: new Date(new Date().setDate(new Date().getDate() - 7)),
