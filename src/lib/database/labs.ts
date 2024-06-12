@@ -200,7 +200,6 @@ export const LabData: Labs[] = [
       'Lab này chuyên sâu vào nghiên cứu và phát triển các vật liệu hóa học tiên tiến, bao gồm các polymer, composite, và nanomaterials, để ứng dụng trong các lĩnh vực như y tế, năng lượng, và công nghiệp.',
     image_urls: ['https://www.eng.hokudai.ac.jp/labo/amc/img/img06.jpg'],
     teacher_ids: ['18'],
-
     image_urls: [
       'https://www.eng.hokudai.ac.jp/labo/amc/img/img06.jpg',
       'https://vwu.vn/documents/1809139/0/TS+nano+1.jpg/aaf15b38-7480-445d-9bf9-37568a1a2e30',
