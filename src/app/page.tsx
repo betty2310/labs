@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { ListFilter } from 'lucide-react';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 
 import {
   Pagination,
@@ -48,7 +48,9 @@ function saveListData() {
     }
   });
 
-  const listIsOpen: string[] = listIsOpenBoolean.map(isOpen => isOpen ? 'Open' : 'Close');
+  const listIsOpen: string[] = listIsOpenBoolean.map(isOpen =>
+    isOpen ? 'Open' : 'Close'
+  );
 
   listSpecialized.push('All');
   listIsOpen.push('All');
@@ -61,14 +63,15 @@ function saveListData() {
   listWorkingTime.sort();
 
   return {
-    listSpecialized: listSpecialized,
-    listIsOpen: listIsOpen,
-    listLanguage: listLanguage,
-    listWorkingTime: listWorkingTime
+    listSpecialized,
+    listIsOpen,
+    listLanguage,
+    listWorkingTime,
   };
 }
 
-const { listSpecialized, listIsOpen, listLanguage, listWorkingTime } = saveListData();
+const { listSpecialized, listIsOpen, listLanguage, listWorkingTime } =
+  saveListData();
 
 export default function LabOverview() {
   const [filterSpecialized, setFilterSpecialized] = useState<string>('');
@@ -78,72 +81,41 @@ export default function LabOverview() {
   const [filterWorkingTime, setFilterWorkingTime] = useState<string>('');
   const [sortOption, setSortOption] = useState<string>('A-Z');
 
-  const handleFilterChangeString = (
-    setter: React.Dispatch<React.SetStateAction<string>>
-  ) => (value: string) => {
-    setter(value);
-  };
+  const handleFilterChangeString =
+    (setter: React.Dispatch<React.SetStateAction<string>>) =>
+      (value: string) => {
+        setter(value);
+      };
 
-  const handleFilterChangeNumber = (
-    setter: React.Dispatch<React.SetStateAction<number>>
-  ) => (value: string) => {
-    switch (value) {
-      case 'All':
-        setter(0);
-        break;
-      case '< 10':
-        setter(1);
-        break;
-      case '10 - 20':
-        setter(10);
-        break;
-      case '20 - 30':
-        setter(20);
-        break;
-      case '30 - 40':
-        setter(30);
-        break;
-      case '> 40':
-        setter(40);
-        break;
-    }
-  };
+  const handleFilterChangeNumber =
+    (setter: React.Dispatch<React.SetStateAction<number>>) =>
+      (value: string) => {
+        switch (value) {
+          case 'All':
+            setter(0);
+            break;
+          case '< 10':
+            setter(1);
+            break;
+          case '10 - 20':
+            setter(10);
+            break;
+          case '20 - 30':
+            setter(20);
+            break;
+          case '30 - 40':
+            setter(30);
+            break;
+          case '> 40':
+            setter(40);
+            break;
+          default:
+            setter(0);
+            break;
+        }
+      };
 
-  // Sort
-  const sortLabByName = () => {
-    console.log("Sort by name");
-    filteredLabs.sort((a, b) => {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
-    });
-    console.log(filteredLabs);
-  };
 
-  const sortLabByCreated = () => {
-    console.log("Sort by created");
-    filteredLabs.sort((a, b) => b.created_at.getTime() - a.created_at.getTime());
-    console.log(filteredLabs);
-  };
-
-  const sortLabByUpdate = () => {
-    console.log("Sort by updated");
-    filteredLabs.sort((a, b) => b.updated_at.getTime() - a.updated_at.getTime());
-    console.log(filteredLabs);
-  };
-
-  const handleSortChange = (option: string) => {
-    setSortOption(option);
-    if (option === 'A-Z') {
-      sortLabByName();
-    }
-    if (option === 'Created') {
-      sortLabByCreated();
-    }
-    if (option === 'Updated') {
-      sortLabByUpdate();
-    }
-  };
 
   const ITEMS_PER_PAGE = 6;
 
@@ -156,6 +128,26 @@ export default function LabOverview() {
       (filterWorkingTime === 'All' || filterWorkingTime === '' || lab.working_time === filterWorkingTime)
     )
     , [filterSpecialized, filterIsOpen, filterLanguage, filterSalary, filterWorkingTime]);
+
+  // Sort
+  const handleSortChange = useCallback((option: string) => {
+    setSortOption(option);
+    let sortedLabs = [...filteredLabs]; // Tạo ra bản sao của mảng filteredLabs
+    if (option === 'A-Z') {
+      sortedLabs.sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      });
+    }
+    if (option === 'Created') {
+      sortedLabs.sort((a, b) => b.created_at.getTime() - a.created_at.getTime());
+    }
+    if (option === 'Updated') {
+      sortedLabs.sort((a, b) => b.updated_at.getTime() - a.updated_at.getTime());
+    }
+    setCurrentData(sortedLabs.slice(0, ITEMS_PER_PAGE));
+  }, [filteredLabs]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(filteredLabs.length / ITEMS_PER_PAGE);
@@ -178,7 +170,7 @@ export default function LabOverview() {
   useEffect(() => {
     setCurrentPage(1);
     setCurrentData(filteredLabs.slice(0, ITEMS_PER_PAGE));
-  }, [filteredLabs]);
+  }, [filteredLabs, handleSortChange]);
 
   function consoleLogLabs() {
     console.log(filteredLabs);
@@ -186,7 +178,14 @@ export default function LabOverview() {
 
   useEffect(() => {
     consoleLogLabs();
-  }, [filterSpecialized, filterIsOpen, filterLanguage, filterSalary, filterWorkingTime]);
+  }, [
+    filterSpecialized,
+    filterIsOpen,
+    filterLanguage,
+    filterSalary,
+    filterWorkingTime,
+    handleSortChange
+  ]);
 
   return (
     <MainLayout>
@@ -194,12 +193,54 @@ export default function LabOverview() {
         <div className="grid grid-cols-10 gap-4 px-8 mt-8 mb-8">
           <div className="col-span-2">
             <div className="col-span-2">
-              <div className='mt-[20px]'>
-                <SelectFilter key='sl-ft-1' selectValue='Specialized' selectItem={listSpecialized} onSelectChange={value => { handleFilterChangeString(setFilterSpecialized)(value); }} />
-                <SelectFilter key='sl-ft-2' selectValue='Status' selectItem={listIsOpen} onSelectChange={value => { handleFilterChangeString(setFilterIsOpen)(value); }} />
-                <SelectFilter key='sl-ft-3' selectValue='Working Time' selectItem={listWorkingTime} onSelectChange={value => { handleFilterChangeString(setFilterWorkingTime)(value); }} />
-                <SelectFilter key='sl-ft-4' selectValue='Language' selectItem={listLanguage} onSelectChange={value => { handleFilterChangeString(setFilterLanguage)(value); }} />
-                <SelectFilter key='sl-ft-5' selectValue='Salary' selectItem={['All', '< 10', '10 - 20', '20 - 30', '30 - 40', '> 40']} onSelectChange={value => { handleFilterChangeNumber(setFilterSalary)(value); }} />
+              <div className="mt-[20px]">
+                <SelectFilter
+                  key="sl-ft-1"
+                  selectValue="Specialized"
+                  selectItem={listSpecialized}
+                  onSelectChange={value => {
+                    handleFilterChangeString(setFilterSpecialized)(value);
+                  }}
+                />
+                <SelectFilter
+                  key="sl-ft-2"
+                  selectValue="Status"
+                  selectItem={listIsOpen}
+                  onSelectChange={value => {
+                    handleFilterChangeString(setFilterIsOpen)(value);
+                  }}
+                />
+                <SelectFilter
+                  key="sl-ft-3"
+                  selectValue="Working Time"
+                  selectItem={listWorkingTime}
+                  onSelectChange={value => {
+                    handleFilterChangeString(setFilterWorkingTime)(value);
+                  }}
+                />
+                <SelectFilter
+                  key="sl-ft-4"
+                  selectValue="Language"
+                  selectItem={listLanguage}
+                  onSelectChange={value => {
+                    handleFilterChangeString(setFilterLanguage)(value);
+                  }}
+                />
+                <SelectFilter
+                  key="sl-ft-5"
+                  selectValue="Salary"
+                  selectItem={[
+                    'All',
+                    '< 10',
+                    '10 - 20',
+                    '20 - 30',
+                    '30 - 40',
+                    '> 40',
+                  ]}
+                  onSelectChange={value => {
+                    handleFilterChangeNumber(setFilterSalary)(value);
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -219,33 +260,43 @@ export default function LabOverview() {
                 <DropdownMenuContent align="end">
                   <DropdownMenuLabel>Sort by</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuCheckboxItem checked={sortOption === 'A-Z'}
-                    onChange={() => handleSortChange('A-Z')}>
+                  <DropdownMenuCheckboxItem
+                    checked={sortOption === 'A-Z'}
+                    onCheckedChange={() => handleSortChange('A-Z')}
+                  >
                     A-Z
                   </DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem checked={sortOption === 'Updated'} onChange={() => handleSortChange('Updated')}>Updated</DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem onChange={() => handleSortChange('Created')}>Created</DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem
+                    checked={sortOption === 'Updated'}
+                    onCheckedChange={() => handleSortChange('Updated')}
+                  >
+                    Updated
+                  </DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem
+                    checked={sortOption === 'Created'}
+                    onCheckedChange={() => handleSortChange('Created')}
+                  >
+                    Created
+                  </DropdownMenuCheckboxItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-4 mb-4">
-              {
-                currentData.map(lab => (
-                  <ItemLab
-                    key={lab.id}
-                    isOpen={lab.is_open}
-                    name={lab.name}
-                    numberOfteacher={lab.teacher_ids.length}
-                    numberOftopic={lab.topic_ids?.length}
-                    numberOfStudents={lab.number_of_students}
-                    lastUpdated={lab.updated_at}
-                    imageUrls={lab.image_urls[0]}
-                    specialized={lab.specialized}
-                    id={lab.id}
-                  />
-                ))
-              }
-            </div >
+              {currentData.map(lab => (
+                <ItemLab
+                  key={lab.id}
+                  isOpen={lab.is_open}
+                  name={lab.name}
+                  numberOfteacher={lab.teacher_ids.length}
+                  numberOftopic={lab.topic_ids?.length}
+                  numberOfStudents={lab.number_of_students}
+                  lastUpdated={lab.updated_at}
+                  imageUrls={lab.image_urls[0]}
+                  specialized={lab.specialized}
+                  id={lab.id}
+                />
+              ))}
+            </div>
             <Pagination>
               <PaginationContent>
                 <PaginationItem>
@@ -273,9 +324,9 @@ export default function LabOverview() {
                 </PaginationItem>
               </PaginationContent>
             </Pagination>
-          </div >
-        </div >
-      </div >
-    </MainLayout >
+          </div>
+        </div>
+      </div>
+    </MainLayout>
   );
 }
