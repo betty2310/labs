@@ -12,14 +12,15 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { useTimeAgo } from 'next-timeago';
 interface LabProps {
   isOpen: boolean;
   name: string;
   numberOfteacher: number;
   numberOftopic: number;
   numberOfStudents: number;
-  lastUpdated: string;
+  lastUpdated: Date;
   imageUrls?: string;
   specialized?: string;
   id: string;
@@ -36,21 +37,28 @@ const ItemLab: React.FC<LabProps> = ({
   specialized,
   id,
 }) => {
+  const { TimeAgo } = useTimeAgo();
+
   return (
     <Link href={`/labs/${id}`}>
-      {' '}
       <Card>
         <CardHeader>
           <CardTitle>
-            <div className="flex items-center justify-between">
-              <div className="text-3xl">{name}</div>
-              <Badge variant="secondary">{lastUpdated}</Badge>
+            <div className="flex items-start justify-between">
+              <div className="text-3xl w-[320px] h-[80px]">{name}</div>
+              <Badge variant="secondary">
+                <TimeAgo date={lastUpdated} />
+              </Badge>
             </div>
             <CardDescription>{specialized}</CardDescription>
           </CardTitle>
         </CardHeader>
         <CardContent className="relative">
-          <img src={imageUrls} alt="lab" className="rounded-md h-40 w-full" />
+          <img
+            src={imageUrls}
+            alt="lab"
+            className="rounded-md h-40 w-full object-cover"
+          />
           <div className="absolute top-4 right-8">
             <Badge variant={isOpen ? 'default' : 'destructive'}>
               {' '}
@@ -59,24 +67,22 @@ const ItemLab: React.FC<LabProps> = ({
           </div>
         </CardContent>
         <CardFooter>
-          <div>
-            <div>
-              <Button
-                variant="outline"
-                className="mb-1 py-1 px-2 text-xs mr-8"
-                size="sm"
-              >
-                <UsersRound className="mr-2 h-4 w-4" /> Giảng viên:{' '}
-                {numberOfteacher}
-              </Button>
-              <Button
-                variant="outline"
-                className="mb-2  py-1 px-2 text-xs"
-                size="sm"
-              >
-                <Captions className="mr-2 h-4 w-4" /> Chủ đề: {numberOftopic}
-              </Button>
-            </div>
+          <div className='flex gap-4'>
+            <Button
+              variant="outline"
+              className="mb-1 py-1 px-2 text-xs"
+              size="sm"
+            >
+              <UsersRound className="mr-2 h-4 w-4" /> Giảng viên:{' '}
+              {numberOfteacher}
+            </Button>
+            <Button
+              variant="outline"
+              className="mb-2  py-1 px-2 text-xs"
+              size="sm"
+            >
+              <Captions className="mr-2 h-4 w-4" /> Chủ đề: {numberOftopic}
+            </Button>
             <Button
               variant="outline"
               className="mb-1  py-1 px-2 text-xs"
