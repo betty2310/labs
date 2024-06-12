@@ -14,18 +14,22 @@ import ItemLab from '@/components/ItemLab';
 type Lab = {
   id: string;
   name: string;
-  teacher: string;
+  numberOfteacher: number;
+  numberOftopic: number;
   numberOfStudents: number;
   lastUpdated: string;
   imageUrls: string;
   isOpen: boolean;
+  specialized?: string;
 };
 const labs: Lab[] = [
   {
     id: '1',
     name: 'In labs',
-    teacher: 'Nguyễn Văn A',
+    numberOfteacher: 3,
+    numberOftopic: 5,
     numberOfStudents: 20,
+    specialized: 'Kỹ thuật In',
     imageUrls:
       'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje0t9MqvOy7ydtuiyFNrJjG6R52EwYP1FmY4Qr7zzTIcOL7OsLsp_2QVu8k4_L9YCNajRppCinGOIRfwlDkAmwX-jtZQg5zgTQ7IkMdCIJdO0_iw6J1immMIGofnio9CA9rRNF-wRK8qPzHqKoYBQQliWhofsUsN8yrDdg4fmwz9o48yCWGZnQ4bLUqY8/w0/lo-trinh-hoc-thiet-ke-vi-mach-dien-tu-cho-nguoi-moi-bat-dau.jpg',
     lastUpdated: '1 hour ago',
@@ -34,8 +38,10 @@ const labs: Lab[] = [
   {
     id: '2',
     name: 'Lab 2',
-    teacher: 'Nguyễn Văn B',
+    numberOfteacher: 2,
+    numberOftopic: 4,
     numberOfStudents: 20,
+    specialized: 'Trí tuệ nhân tạo',
     imageUrls:
       'https://duhoctrawise.edu.vn/wp-content/uploads/2023/06/1-33.jpg',
     lastUpdated: '1 hour ago',
@@ -44,8 +50,10 @@ const labs: Lab[] = [
   {
     id: '3',
     name: 'Lab 3',
-    teacher: 'Nguyễn Văn C',
+    numberOfteacher: 1,
+    numberOftopic: 2,
     numberOfStudents: 20,
+    specialized: 'IoT - Internet of Things',
     imageUrls:
       'https://cdn.tgdd.vn/hoi-dap/1322322/cam-bien-thong-minh-la-gi-co-nhung-loai-nao-ung-dung-ra-sao%20(3).jpg',
     lastUpdated: '1 hour ago',
@@ -54,8 +62,10 @@ const labs: Lab[] = [
   {
     id: '1',
     name: 'In labs',
-    teacher: 'Nguyễn Văn A',
+    numberOfteacher: 3,
+    numberOftopic: 5,
     numberOfStudents: 20,
+    specialized: 'Kỹ thuật In',
     imageUrls:
       'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje0t9MqvOy7ydtuiyFNrJjG6R52EwYP1FmY4Qr7zzTIcOL7OsLsp_2QVu8k4_L9YCNajRppCinGOIRfwlDkAmwX-jtZQg5zgTQ7IkMdCIJdO0_iw6J1immMIGofnio9CA9rRNF-wRK8qPzHqKoYBQQliWhofsUsN8yrDdg4fmwz9o48yCWGZnQ4bLUqY8/w0/lo-trinh-hoc-thiet-ke-vi-mach-dien-tu-cho-nguoi-moi-bat-dau.jpg',
     lastUpdated: '1 hour ago',
@@ -64,8 +74,10 @@ const labs: Lab[] = [
   {
     id: '2',
     name: 'Lab 2',
-    teacher: 'Nguyễn Văn B',
+    numberOfteacher: 2,
+    numberOftopic: 4,
     numberOfStudents: 20,
+    specialized: 'Trí tuệ nhân tạo',
     imageUrls:
       'https://duhoctrawise.edu.vn/wp-content/uploads/2023/06/1-33.jpg',
     lastUpdated: '1 hour ago',
@@ -74,12 +86,14 @@ const labs: Lab[] = [
   {
     id: '3',
     name: 'Lab 3',
-    teacher: 'Nguyễn Văn C',
+    numberOfteacher: 1,
+    numberOftopic: 2,
     numberOfStudents: 20,
+    specialized: 'IoT - Internet of Things',
     imageUrls:
       'https://cdn.tgdd.vn/hoi-dap/1322322/cam-bien-thong-minh-la-gi-co-nhung-loai-nao-ung-dung-ra-sao%20(3).jpg',
     lastUpdated: '1 hour ago',
-    isOpen: false,
+    isOpen: true,
   },
 ];
 
@@ -108,10 +122,12 @@ export default function LabOverview() {
                   key={lab.id}
                   isOpen={lab.isOpen}
                   name={lab.name}
-                  teacher={lab.teacher}
+                  numberOfteacher={lab.numberOfteacher}
+                  numberOftopic={lab.numberOftopic}
                   numberOfStudents={lab.numberOfStudents}
                   lastUpdated={lab.lastUpdated}
                   imageUrls={lab.imageUrls}
+                  specialized={lab.specialized}
                 />
               ))}
             </div>
