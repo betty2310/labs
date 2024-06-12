@@ -9,9 +9,9 @@ export const LabData: Labs[] = [
     image_urls: [
       'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje0t9MqvOy7ydtuiyFNrJjG6R52EwYP1FmY4Qr7zzTIcOL7OsLsp_2QVu8k4_L9YCNajRppCinGOIRfwlDkAmwX-jtZQg5zgTQ7IkMdCIJdO0_iw6J1immMIGofnio9CA9rRNF-wRK8qPzHqKoYBQQliWhofsUsN8yrDdg4fmwz9o48yCWGZnQ4bLUqY8/w0/lo-trinh-hoc-thiet-ke-vi-mach-dien-tu-cho-nguoi-moi-bat-dau.jpg',
     ],
-    teacher_ids: ['wzoCkgV', 'eDgUzvz'],
-    created_at: new Date(new Date().setDate(new Date().getDate() - 1)),
-    updated_at: new Date(),
+    teacher_ids: ['1', '2'],
+    created_at: new Date(new Date().setDate(new Date().getDate() - 10)),
+    updated_at: new Date(new Date().setDate(new Date().getDate() - 4)),
     is_open: true,
     number_of_students: 12,
     salary: 20,
