@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import type { Labs } from '.';
 
 export const LabData: Labs[] = [
