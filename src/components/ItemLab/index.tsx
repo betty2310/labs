@@ -1,6 +1,9 @@
 'use client';
 
 import { Captions, UsersRound } from 'lucide-react';
+import Link from 'next/link';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { useTimeAgo } from 'next-timeago';
 
 import {
   Card,
@@ -12,16 +15,17 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-
+// eslint-disable-next-line import/no-extraneous-dependencies
 interface LabProps {
   isOpen: boolean;
   name: string;
   numberOfteacher: number;
-  numberOftopic: number;
+  numberOftopic?: number;
   numberOfStudents: number;
-  lastUpdated: string;
+  lastUpdated: Date;
   imageUrls?: string;
   specialized?: string;
+  id: string;
 }
 
 const ItemLab: React.FC<LabProps> = ({
@@ -33,33 +37,40 @@ const ItemLab: React.FC<LabProps> = ({
   lastUpdated,
   imageUrls,
   specialized,
+  id,
 }) => {
+  const { TimeAgo } = useTimeAgo();
+
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>
-          <div className="flex items-center justify-between">
-            <div className="text-3xl">{name}</div>
-            <Badge variant="secondary">{lastUpdated}</Badge>
+    <Link href={`/labs/${id}`}>
+      <Card>
+        <CardHeader>
+          <CardTitle>
+            {name}
+            <Badge variant="secondary">
+              <TimeAgo date={lastUpdated} />
+            </Badge>
+            <CardDescription>{specialized}</CardDescription>
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="relative">
+          <img
+            src={imageUrls}
+            alt="lab"
+            className="rounded-md h-40 w-full object-cover"
+          />
+          <div className="absolute top-4 right-8">
+            <Badge variant={isOpen ? 'default' : 'destructive'}>
+              {' '}
+              {isOpen ? 'Đang mở' : 'Đã đóng'}
+            </Badge>
           </div>
-          <CardDescription>{specialized}</CardDescription>
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="relative">
-        <img src={imageUrls} alt="lab" className="rounded-md h-40 w-full" />
-        <div className="absolute top-4 right-8">
-          <Badge variant={isOpen ? 'default' : 'destructive'}>
-            {' '}
-            {isOpen ? 'Đang mở' : 'Đã đóng'}
-          </Badge>
-        </div>
-      </CardContent>
-      <CardFooter>
-        <div>
-          <div>
+        </CardContent>
+        <CardFooter>
+          <div className="flex gap-4 flex-col xl:flex-row">
             <Button
               variant="outline"
-              className="mb-1 py-1 px-2 text-xs mr-8"
+              className="mb-1 py-1 px-2 text-xs"
               size="sm"
             >
               <UsersRound className="mr-2 h-4 w-4" /> Giảng viên:{' '}
@@ -72,18 +83,18 @@ const ItemLab: React.FC<LabProps> = ({
             >
               <Captions className="mr-2 h-4 w-4" /> Chủ đề: {numberOftopic}
             </Button>
+            <Button
+              variant="outline"
+              className="mb-1  py-1 px-2 text-xs"
+              size="sm"
+            >
+              <UsersRound className="mr-2 h-4 w-4" /> Sinh viên:{' '}
+              {numberOfStudents}
+            </Button>
           </div>
-          <Button
-            variant="outline"
-            className="mb-1  py-1 px-2 text-xs"
-            size="sm"
-          >
-            <UsersRound className="mr-2 h-4 w-4" /> Sinh viên:{' '}
-            {numberOfStudents}
-          </Button>
-        </div>
-      </CardFooter>
-    </Card>
+        </CardFooter>
+      </Card>
+    </Link>
   );
 };
 
