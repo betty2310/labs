@@ -32,7 +32,7 @@ function Hit({ hit }: { hit: any }) {
   return (
     <article className="my-2">
       <Link href={`/labs/${id}`}>
-        <Card>
+        <Card className="hover:bg-secondary">
           <CardHeader>
             <CardTitle className="text-sm">
               <Highlight attribute="name" hit={hit} />

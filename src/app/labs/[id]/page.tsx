@@ -1,7 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
+
 'use client';
 
 // eslint-disable-next-line import/order
 import React, { useEffect, useState } from 'react';
+import { Briefcase, DollarSign, Users, Globe, Clock } from 'lucide-react';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useTimeAgo } from 'next-timeago';
@@ -14,6 +17,13 @@ import TeacherCarousel from '@/components/LabDetail/TeacherCarousel';
 import { Button } from '@/components/ui/button';
 import { LabTopicsData } from '@/lib/database/labtopics';
 import TopicCarousel from '@/components/LabDetail/TopicCarousel';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 type Props = {
   params: { id: string };
@@ -59,25 +69,57 @@ const LabsDetail = ({ params }: Props) => {
         </Button>
       </div>
       <div>
-        <div className="flex gap-2 mt-4">
-          <Button variant="outline">{lab.specialized}</Button>
-          <Button variant="outline">Salary {lab.salary} $</Button>
-          <Button variant="outline">Students {lab.number_of_students}</Button>
-          <Button variant="outline">{lab.language}</Button>
-          <Button variant="outline">{lab.working_time}</Button>
+        <div className="mt-4 w-3/4">
+          <ol className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <li className="flex items-center">
+              <Briefcase className="h-5 w-5 text-gray-600 mr-2" />
+              <div className="text-sm">{lab.specialized}</div>
+            </li>
+            <li className="flex items-center">
+              <DollarSign className="h-5 w-5 text-gray-600 mr-2" />
+              <div className="text-sm">Salary {lab.salary} $</div>
+            </li>
+            <li className="flex items-center">
+              <Users className="h-5 w-5 text-gray-600 mr-2" />
+              <div className="text-sm">Students {lab.number_of_students}</div>
+            </li>
+            <li className="flex items-center">
+              <Globe className="h-5 w-5 text-gray-600 mr-2" />
+              <div className="text-sm">
+                {lab.language === undefined ? 'No need' : lab.language}
+              </div>
+            </li>
+            <li className="flex items-center">
+              <Clock className="h-5 w-5 text-gray-600 mr-2" />
+              <div className="text-sm">Working time: {lab.working_time}</div>
+            </li>
+          </ol>
         </div>
       </div>
-      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+      <h3 className="scroll-m-20 mt-4 text-2xl font-semibold tracking-tight">
         Teachers
       </h3>
       <TeacherCarousel teachers={teachers} />
 
-      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+      <h3 className="scroll-m-20 mt-4 text-2xl font-semibold tracking-tight">
         Topics
       </h3>
       <TopicCarousel topics={topics} />
-
       <p className="leading-7 [&:not(:first-child)]:mt-6">{lab.description}</p>
+      <div className="flex items-center justify-center w-full mb-4">
+        <Carousel className="w-full max-w-xs">
+          <CarouselContent>
+            {lab.image_urls.map((url, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <CarouselItem key={index}>
+                <img src={url} alt="des" />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
     </div>
   );
 };

@@ -25,7 +25,7 @@ export default function TeacherItem({ name, email, imageUrl, phone }: Props) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Card className="w-[300px] p-4 hover:cursor-pointer">
+        <Card className="w-[300px] p-4 hover:cursor-pointer bg-secondary">
           <div className="flex items-center gap-3">
             <Avatar>
               <AvatarImage src={imageUrl} alt="@teacher" />
@@ -45,7 +45,12 @@ export default function TeacherItem({ name, email, imageUrl, phone }: Props) {
         </SheetHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <p className="text-right">{email}</p>
+            <a
+              href={`mailto:${email}`}
+              className="text-right text-primary underline"
+            >
+              {email}
+            </a>
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <p className="text-right">{phone}</p>

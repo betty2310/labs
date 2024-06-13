@@ -14,7 +14,7 @@ const MainFooter = () => {
           </a>
           . The source code is available on{' '}
           <a
-            href="/"
+            href="https://github.com/betty2310/labs"
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
