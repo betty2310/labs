@@ -83,77 +83,102 @@ export default function LabOverview() {
 
   const handleFilterChangeString =
     (setter: React.Dispatch<React.SetStateAction<string>>) =>
-      (value: string) => {
-        setter(value);
-      };
+    (value: string) => {
+      setter(value);
+    };
 
   const handleFilterChangeNumber =
     (setter: React.Dispatch<React.SetStateAction<number>>) =>
-      (value: string) => {
-        switch (value) {
-          case 'All':
-            setter(0);
-            break;
-          case '< 10':
-            setter(1);
-            break;
-          case '10 - 20':
-            setter(10);
-            break;
-          case '20 - 30':
-            setter(20);
-            break;
-          case '30 - 40':
-            setter(30);
-            break;
-          case '> 40':
-            setter(40);
-            break;
-          default:
-            setter(0);
-            break;
-        }
-      };
-
-
+    (value: string) => {
+      switch (value) {
+        case 'All':
+          setter(0);
+          break;
+        case '< 10':
+          setter(1);
+          break;
+        case '10 - 20':
+          setter(10);
+          break;
+        case '20 - 30':
+          setter(20);
+          break;
+        case '30 - 40':
+          setter(30);
+          break;
+        case '> 40':
+          setter(40);
+          break;
+        default:
+          setter(0);
+          break;
+      }
+    };
 
   const ITEMS_PER_PAGE = 6;
 
-  const filteredLabs = useMemo(() =>
-    LabData.filter(lab =>
-      (filterSpecialized === 'All' || filterSpecialized === '' || lab.specialized.includes(filterSpecialized)) &&
-      (filterIsOpen === 'All' || filterIsOpen === '' || (lab.is_open ? 'Open' : 'Close') === filterIsOpen) &&
-      (filterLanguage === 'All' || filterLanguage === '' || lab.language === filterLanguage) &&
-      (filterSalary === 0 || (filterSalary === 1 && lab.salary <= 10) || (lab.salary >= filterSalary && lab.salary <= filterSalary + 10) || (filterSalary === 40 && lab.salary >= filterSalary)) &&
-      (filterWorkingTime === 'All' || filterWorkingTime === '' || lab.working_time === filterWorkingTime)
-    )
-    , [filterSpecialized, filterIsOpen, filterLanguage, filterSalary, filterWorkingTime]);
+  const filteredLabs = useMemo(
+    () =>
+      LabData.filter(
+        lab =>
+          (filterSpecialized === 'All' ||
+            filterSpecialized === '' ||
+            lab.specialized.includes(filterSpecialized)) &&
+          (filterIsOpen === 'All' ||
+            filterIsOpen === '' ||
+            (lab.is_open ? 'Open' : 'Close') === filterIsOpen) &&
+          (filterLanguage === 'All' ||
+            filterLanguage === '' ||
+            lab.language === filterLanguage) &&
+          (filterSalary === 0 ||
+            (filterSalary === 1 && lab.salary <= 10) ||
+            (lab.salary >= filterSalary && lab.salary <= filterSalary + 10) ||
+            (filterSalary === 40 && lab.salary >= filterSalary)) &&
+          (filterWorkingTime === 'All' ||
+            filterWorkingTime === '' ||
+            lab.working_time === filterWorkingTime)
+      ),
+    [
+      filterSpecialized,
+      filterIsOpen,
+      filterLanguage,
+      filterSalary,
+      filterWorkingTime,
+    ]
+  );
 
-  // Sort
-  const handleSortChange = useCallback((option: string) => {
-    setSortOption(option);
-    let sortedLabs = [...filteredLabs];
-    if (option === 'A-Z') {
-      sortedLabs.sort((a, b) => {
-        if (a.name < b.name) return -1;
-        if (a.name > b.name) return 1;
-        return 0;
-      });
-    }
-    if (option === 'Created') {
-      sortedLabs.sort((a, b) => b.created_at.getTime() - a.created_at.getTime());
-    }
-    if (option === 'Updated') {
-      sortedLabs.sort((a, b) => b.updated_at.getTime() - a.updated_at.getTime());
-    }
-    setCurrentData(sortedLabs.slice(0, ITEMS_PER_PAGE));
-  }, [filteredLabs]);
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(filteredLabs.length / ITEMS_PER_PAGE);
   const [currentData, setCurrentData] = useState(
     filteredLabs.slice(0, ITEMS_PER_PAGE)
   );
+  // Sort
+  const handleSortChange = useCallback(
+    (option: string) => {
+      setSortOption(option);
+      const sortedLabs = [...filteredLabs];
+      if (option === 'A-Z') {
+        sortedLabs.sort((a, b) => {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        });
+      }
+      if (option === 'Created') {
+        sortedLabs.sort(
+          (a, b) => b.created_at.getTime() - a.created_at.getTime()
+        );
+      }
+      if (option === 'Updated') {
+        sortedLabs.sort(
+          (a, b) => b.updated_at.getTime() - a.updated_at.getTime()
+        );
+      }
+      setCurrentData(sortedLabs.slice(0, ITEMS_PER_PAGE));
+    },
+    [filteredLabs]
+  );
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(filteredLabs.length / ITEMS_PER_PAGE);
 
   const handlePageChange = (pageNumber: number) => {
     if (pageNumber >= 1 && pageNumber <= totalPages) {
@@ -172,19 +197,13 @@ export default function LabOverview() {
     setCurrentData(filteredLabs.slice(0, ITEMS_PER_PAGE));
   }, [filteredLabs, handleSortChange]);
 
-  function consoleLogLabs() {
-    console.log(filteredLabs);
-  }
-
-  useEffect(() => {
-    consoleLogLabs();
-  }, [
+  useEffect(() => {}, [
     filterSpecialized,
     filterIsOpen,
     filterLanguage,
     filterSalary,
     filterWorkingTime,
-    handleSortChange
+    handleSortChange,
   ]);
 
   return (
