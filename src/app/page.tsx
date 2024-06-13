@@ -84,37 +84,37 @@ export default function LabOverview() {
 
   const handleFilterChangeString =
     (setter: React.Dispatch<React.SetStateAction<string>>) =>
-    (value: string) => {
-      setter(value);
-    };
+      (value: string) => {
+        setter(value);
+      };
 
   const handleFilterChangeNumber =
     (setter: React.Dispatch<React.SetStateAction<number>>) =>
-    (value: string) => {
-      switch (value) {
-        case 'All':
-          setter(0);
-          break;
-        case '< 10':
-          setter(1);
-          break;
-        case '10 - 20':
-          setter(10);
-          break;
-        case '20 - 30':
-          setter(20);
-          break;
-        case '30 - 40':
-          setter(30);
-          break;
-        case '> 40':
-          setter(40);
-          break;
-        default:
-          setter(0);
-          break;
-      }
-    };
+      (value: string) => {
+        switch (value) {
+          case 'All':
+            setter(0);
+            break;
+          case '< 10':
+            setter(1);
+            break;
+          case '10 - 20':
+            setter(10);
+            break;
+          case '20 - 30':
+            setter(20);
+            break;
+          case '30 - 40':
+            setter(30);
+            break;
+          case '> 40':
+            setter(40);
+            break;
+          default:
+            setter(0);
+            break;
+        }
+      };
 
   const ITEMS_PER_PAGE = 6;
 
@@ -198,7 +198,7 @@ export default function LabOverview() {
     setCurrentData(filteredLabs.slice(0, ITEMS_PER_PAGE));
   }, [filteredLabs, handleSortChange]);
 
-  useEffect(() => {}, [
+  useEffect(() => { }, [
     filterSpecialized,
     filterIsOpen,
     filterLanguage,
@@ -209,8 +209,10 @@ export default function LabOverview() {
 
   return (
     <MainLayout>
-      <div className="flex flex-col items-center">
-        <SearchDialog />
+      <div className="flex flex-col">
+        <div className='flex flex-col items-center'>
+          <SearchDialog />
+        </div>
         <div className="grid grid-cols-10 gap-4 px-8 mt-8 mb-8">
           <div className="col-span-2">
             <div className="col-span-2">
