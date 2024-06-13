@@ -1,6 +1,8 @@
 'use client';
 
+// eslint-disable-next-line import/order
 import React, { useEffect, useState } from 'react';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useTimeAgo } from 'next-timeago';
 
@@ -38,6 +40,7 @@ const LabsDetail = ({ params }: Props) => {
       const topic = LabTopicsData.filter(t => t.id === id)[0];
       setTopics(prev => [...prev, topic]);
     });
+    document.title = `Labs - ${lab?.name}` || 'Labs ...';
   }, [lab]);
 
   if (!lab) return <CircileLoading />;

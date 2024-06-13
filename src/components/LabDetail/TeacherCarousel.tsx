@@ -14,7 +14,6 @@ export default function TeacherCarousel({ teachers }: Props) {
   return (
     <div className="flex gap-3">
       {teachers.map(teacher => {
-        console.log(teacher)
         return (
           <div key={teacher.id}>
             <TeacherItem

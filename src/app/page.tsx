@@ -209,8 +209,8 @@ export default function LabOverview() {
 
   return (
     <MainLayout>
-      <SearchDialog/>
-      <div>
+      <div className="flex flex-col items-center">
+        <SearchDialog />
         <div className="grid grid-cols-10 gap-4 px-8 mt-8 mb-8">
           <div className="col-span-2">
             <div className="col-span-2">
