@@ -7,7 +7,6 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -209,8 +208,10 @@ export default function LabOverview() {
 
   return (
     <MainLayout>
-      <div className="flex flex-col items-center">
-        <SearchDialog />
+      <div className="flex flex-col">
+        <div className="flex flex-col items-center">
+          <SearchDialog />
+        </div>
         <div className="grid grid-cols-10 gap-4 px-8 mt-8 mb-8">
           <div className="col-span-2">
             <div className="col-span-2">
@@ -326,17 +327,20 @@ export default function LabOverview() {
                     onClick={() => handlePageChange(currentPage - 1)}
                   />
                 </PaginationItem>
-                {Array.from({ length: totalPages }, (_, index) => (
-                  <PaginationItem key={index}>
-                    <PaginationLink
-                      href="#"
-                      onClick={() => handlePageChange(index + 1)}
-                    >
-                      {index + 1}
-                    </PaginationLink>
-                  </PaginationItem>
-                ))}
-                {totalPages > 5 && <PaginationEllipsis />}
+                {Array.from({ length: totalPages }, (_, index) => {
+                  const isActive = index + 1 === currentPage;
+                  return (
+                    <PaginationItem key={index}>
+                      <PaginationLink
+                        isActive={isActive}
+                        href="#"
+                        onClick={() => handlePageChange(index + 1)}
+                      >
+                        {index + 1}
+                      </PaginationLink>
+                    </PaginationItem>
+                  );
+                })}
                 <PaginationItem>
                   <PaginationNext
                     href="#"
