@@ -152,7 +152,7 @@ export const LabData: Labs[] = [
     working_time: 'fulltime',
   },
   {
-    id: '02e68ba0-cac7-4cd9-99e1-84aeae162df7',
+    id: '02e68ba0-cac7-4cd9-99e1-84aeae162df9',
     name: 'Công nghệ 5G và Mạng di động',
     description:
       'Công nghệ 5G là một trong những công nghệ tiên tiến nhất trong lĩnh vực truyền thông di động, mang lại tốc độ truy cập Internet nhanh hơn, ổn định hơn, và đáng tin cậy hơn. 5G không chỉ cung cấp tốc độ truy cập Internet cao hơn mà còn mở ra nhiều cơ hội mới cho các ứng dụng công nghệ như trí tuệ nhân tạo (AI), Internet of Things (IoT), và xe tự hành.',
