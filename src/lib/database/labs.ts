@@ -139,6 +139,24 @@ export const LabData: Labs[] = [
     description:
       'Công nghệ 5G là một trong những công nghệ tiên tiến nhất trong lĩnh vực truyền thông di động, mang lại tốc độ truy cập Internet nhanh hơn, ổn định hơn, và đáng tin cậy hơn. 5G không chỉ cung cấp tốc độ truy cập Internet cao hơn mà còn mở ra nhiều cơ hội mới cho các ứng dụng công nghệ như trí tuệ nhân tạo (AI), Internet of Things (IoT), và xe tự hành.',
     image_urls: [
+      'https://saigonict.com/wp-content/uploads/2021/07/saigonict-cyber-securityblog-5g.jpg',
+    ],
+    teacher_ids: ['13', '14'],
+    created_at: new Date(new Date().setDate(new Date().getDate() - 15)),
+    updated_at: new Date(new Date().setDate(new Date().getDate() - 3)),
+    is_open: false,
+    number_of_students: 10,
+    salary: 25,
+    specialized: 'Kỹ thuật Điện tử-Viễn thông',
+    topic_ids: ['14', '15'],
+    working_time: 'fulltime',
+  },
+  {
+    id: '02e68ba0-cac7-4cd9-99e1-84aeae162df9',
+    name: 'Công nghệ 5G và Mạng di động',
+    description:
+      'Công nghệ 5G là một trong những công nghệ tiên tiến nhất trong lĩnh vực truyền thông di động, mang lại tốc độ truy cập Internet nhanh hơn, ổn định hơn, và đáng tin cậy hơn. 5G không chỉ cung cấp tốc độ truy cập Internet cao hơn mà còn mở ra nhiều cơ hội mới cho các ứng dụng công nghệ như trí tuệ nhân tạo (AI), Internet of Things (IoT), và xe tự hành.',
+    image_urls: [
       'https://ttcntt.hatinh.gov.vn/uploads/news/2022_06/5g.jpg',
       'https://dntech.vn/uploads/details/2020/12/images/M%E1%BA%A1ng%20di%20%C4%91%E1%BB%99ng%205G%2011.jpg',
     ],
