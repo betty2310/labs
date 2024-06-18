@@ -1125,4 +1125,24 @@ export const LabTopicsData: LabTopics[] = [
     updated_at: new Date(),
     teacher_id: '39',
   },
+  {
+    id: '115',
+    name: 'Học máy',
+    description:
+      'Nhóm nghiên cứu học máy tập trung vào các bài toán liên quan đến công nghệ lõi của học máy như: Nghiên cứu bài toán học từ luồng dữ liệu vô hạn giúp một máy tính không những có khả năng học liên tục từ dữ liệu, mà còn vận dụng tốt tri thức của con người. Các thuật toán học liên tục (continual learning):  giúp một máy tính có thể huấn luyện liên tục từ luồng các nhiệm vụ đến liên tục. Các mạng sinh sâu (deep generative models) có khả năng sinh ra những dữ liệu (ảnh, văn bản, câu nói,…) như thật. các hệ gợi ý (recommender system) có khả năng mô hình hoá các phản hồi của người dùng, các mối liên hệ ẩn bậc cao giữa người dùng và sản phẩm, để từ đó đưa ra các gợi ý chính xác.',
+    number_of_students: 2,
+    created_at: new Date(),
+    updated_at: new Date(),
+    teacher_id: '39',
+  },
+  {
+    id: '116',
+    name: 'Xử lý ngôn ngữ tự nhiên',
+    description:
+      'Các chủ đề nghiên cứu của nhóm xử lý ngôn ngữ tự nhiên bao gồm: 1. Xử lý văn bản (Text Processing), Tóm tắt văn bản (Text Summarization), Hệ thống hỏi đáp (QA System), Hệ thống thoại (Dialog System), Chuyển đổi văn bản sang giọng nói (Text-To-Speech), Phân tích quan điểm (Opinion analysis), Dịch máy (Machine translation), Trích rút sự kiện từ văn bản (Event extraction), Phát hiện sao chép (Copy detection), Chuyển đổi văn bản sang giọng nói (Text-To-Speech).',
+    number_of_students: 4,
+    created_at: new Date(),
+    updated_at: new Date(),
+    teacher_id: '12',
+  },
 ];

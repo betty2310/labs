@@ -468,11 +468,32 @@ export const LabData: Labs[] = [
     language: 'english',
     created_at: new Date(new Date().setDate(new Date().getDate() - 12)),
     updated_at: new Date(new Date().setDate(new Date().getDate() - 7)),
-    is_open: true,
+    is_open: false,
     number_of_students: 25,
     salary: 40,
     specialized: 'CNTT: Kỹ thuật Máy tính',
     topic_ids: ['15', '29'],
+    working_time: 'fulltime',
+  },
+  {
+    id: 'cdef0abc-b3d4-4ee6-b28a-7e31ae1fe6f1221',
+    name: 'Trung tâm Nghiên cứu Quốc tế về Trí tuệ nhân tạo',
+    description:
+      'Trung tâm Nghiên cứu quốc tế về Trí tuệ nhân tạo BK.AI được thành lập với mục tiêu xây dựng và phát triển một cơ quan nghiên cứu hàng đầu tại Việt Nam, đặc biệt trong việc đào tạo nhân lực trình độ cao về AI và nghiên cứu những nội dung chọn lọc quan trọng về AI. Trung tâm hướng tới xây dựng những nhóm nghiên cứu mạnh, tạo ra các công trình có tầm ảnh hưởng lớn trong khu vực và trên thế giới. Trung tâm cũng chú trọng chuyển giao công nghệ, thúc đẩy việc ứng dụng AI vào thực tiễn.\nTrung tâm có mô hình hoạt động mở, tạo điều kiện cho các nhà khoa học nghiên cứu về AI trong và ngoài trường, Việt Nam và Quốc tế triển khai các nghiên cứu trong lĩnh vực AI. Trong mục tiêu dài hạn, Trung tâm Hedspi là nơi kết nối các nhóm nghiên cứu về trí tuệ nhân tạo trong trường đại học ĐHBK, nhằm phát huy sức mạnh, cùng nhau thực hiện các mục tiêu nghiên cứu, đào tạo, chuyển giao công nghệ trong lĩnh vực trí tuệ nhân tạo.\n\nTham gia các hoạt động đào tạo góp phần tạo ra nguồn nhân lực chất lượng cao trong lĩnh vực AI.\nTổ chức thực hiện các hoạt động nghiên cứu khoa học và chuyển giao công nghệ. Tăng cường hợp tác với doanh nghiệp, các viện nghiên cứu, hiệp hội, các tổ chức và cá nhân khác trong chuyển giao để nâng cao chất nghiên cứu, đưa nghiên cứu tiến đến ứng dụng thực tế, đáp ứng nhu cầu xã hội.\nTổ chức thực hiện các hoạt động dịch vụ khoa học - kỹ thuật. Mở rộng hợp tác với các đơn vị nghiên cứu trong / ngoài Trường, các cơ quan tài trợ nghiên cứu, các đối tác quốc tế, các địa chỉ ứng dụng (cơ quan quản lý nhà nước, doanh nghiệp) … để xây dựng các đề tài / dự án / chương trình nghiên cứu không những bắt nhịp với xu thế phát triển của Thế giới, mà còn có tiềm năng ứng dụng cao, qua đó nâng cao vị thế của đơn vị trong và ngoài nước.',
+    image_urls: [
+      'https://soict.hust.edu.vn/wp-content/uploads/trung-tam-ai-cover.jpeg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9UmkAJfEeWRIcx1DEVXxDKoZ5aur5VxtpGQ&s',
+      'https://soict.hust.edu.vn/wp-content/uploads/BKAI-NAVER-Challenge-2022-10.jpg'
+    ],
+    teacher_ids: ['39', '12', '11'],
+    language: 'english',
+    created_at: new Date(new Date().setDate(new Date().getDate() - 10)),
+    updated_at: new Date(new Date().setDate(new Date().getDate() - 1)),
+    is_open: true,
+    number_of_students: 25,
+    salary: 40,
+    specialized: 'CNTT: Kỹ thuật Máy tính',
+    topic_ids: ['115', '116'],
     working_time: 'fulltime',
   },
   {
